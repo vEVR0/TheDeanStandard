@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://cgfwldr4mb0pk"]
+[gd_scene load_steps=6 format=4 uid="uid://cgfwldr4mb0pk"]
 
-[ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://b6me073rlesem" path="res://icon.svg" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://Scenes/dean.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://b6me073rlesem" path="res://images/icon.svg" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://pj7r38lp6gpe" path="res://scenes/umbrella.tscn" id="3_sugp2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("2_0wfyh")
@@ -141,10 +142,13 @@ sources/0 = SubResource("TileSetAtlasSource_sugp2")
 [node name="Main" type="Node"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(81, 30)
+position = Vector2(104, 28)
+
+[node name="Umbrella" parent="CharacterBody2D" instance=ExtResource("3_sugp2")]
+position = Vector2(1, 21)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(2.365, 2.365)
+zoom = Vector2(3.385, 3.385)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 

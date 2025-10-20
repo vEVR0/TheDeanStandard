@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds0t20abynf50"]
 
 [ext_resource type="Texture2D" uid="uid://c83afu83tkyu6" path="res://images/dean.png" id="1_6p3xl"]
-[ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://Scenes/dean.gd" id="1_tn4m3"]
+[ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://scripts/dean.gd" id="1_tn4m3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tn4m3"]
 animations = [{
