@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://pj7r38lp6gpe"]
 
-[ext_resource type="Texture2D" uid="uid://dj7uqgydgyq6p" path="res://images/R2709243_30-removebg-preview.png" id="1_013dy"]
+[ext_resource type="Texture2D" uid="uid://dj7uqgydgyq6p" path="res://images/umbrella.png" id="1_013dy"]
 [ext_resource type="Script" uid="uid://dev70in6vsk2i" path="res://scripts/umbrella.gd" id="2_6qus1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_og67c"]

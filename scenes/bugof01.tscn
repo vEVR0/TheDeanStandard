@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cno6shrg2lr0e"]
+
+[ext_resource type="Texture2D" uid="uid://br3u6alfx67vg" path="res://images/bug.png" id="1_j426k"]
+[ext_resource type="Script" uid="uid://div7w3xeeu5a1" path="res://scripts/bugof01.gd" id="2_7hnnw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huj20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j426k")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("2_7hnnw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_huj20")
+animation = &"new_animation"
