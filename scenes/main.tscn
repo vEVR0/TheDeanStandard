@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://cgfwldr4mb0pk"]
+[gd_scene load_steps=8 format=4 uid="uid://cgfwldr4mb0pk"]
 
 [ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://dsrwue4vrleps" path="res://images/licensed-image.jpg" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://b6me073rlesem" path="res://images/icon.svg" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://pj7r38lp6gpe" path="res://scenes/umbrella.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cno6shrg2lr0e" path="res://scenes/bugof01.tscn" id="4_jyhfs"]
@@ -142,6 +143,14 @@ sources/0 = SubResource("TileSetAtlasSource_sugp2")
 
 [node name="Main" type="Node"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -5115.0
+offset_top = -2227.0
+offset_right = 5223.0
+offset_bottom = 3762.0
+texture = ExtResource("1_tbgi4")
+stretch_mode = 1
+
 [node name="Dean" parent="." instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
 position = Vector2(104, 28)
@@ -151,13 +160,11 @@ position = Vector2(1, 21)
 
 [node name="Camera2D" type="Camera2D" parent="Dean"]
 zoom = Vector2(3.385, 3.385)
-position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-2, -74)
 tile_map_data = PackedByteArray("AAD8/wUAAAADAAIAAAD9/wUAAAADAAIAAAD9/wYAAAADAAIAAAD+/wYAAAADAAIAAAD//wYAAAADAAIAAAAAAAYAAAADAAIAAAABAAYAAAADAAIAAAABAAcAAAADAAIAAAACAAcAAAADAAIAAAADAAcAAAADAAIAAAAEAAcAAAADAAIAAAAFAAcAAAADAAIAAAAGAAcAAAADAAIAAAAHAAcAAAADAAIAAAAIAAcAAAADAAIAAAAJAAcAAAADAAIAAAAKAAcAAAADAAIAAAALAAcAAAADAAIAAAAMAAcAAAADAAIAAAANAAcAAAADAAIAAAAOAAcAAAADAAIAAAAPAAcAAAADAAIAAAAQAAYAAAADAAIAAAARAAYAAAADAAIAAAASAAYAAAADAAIAAAATAAYAAAADAAIAAAAUAAYAAAADAAIAAAAVAAYAAAADAAIAAAA=")
 tile_set = SubResource("TileSet_jyhfs")
 
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("4_jyhfs")]
-position = Vector2(217, 48.000008)
-scale = Vector2(0.22888881, 0.22888881)
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_jyhfs")]
