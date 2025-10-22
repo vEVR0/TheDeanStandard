@@ -12,12 +12,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
+	if global_position.distance_to(dean.global_position) > 20:
+		position += transform.x * SPEED * delta
 	look_at(dean.global_position)
-	position += transform.x * SPEED * delta
+	
 	#global_position.x = global_position.x + (sin(rotation_degrees))
 	#global_position.y = global_position.y + (cos(rotation_degrees))
 	
-	var distancetodean = sqrt((global_position.x - dean.global_position.x)^2 + (global_position.y - dean.global_position.y)^2)
+	
 	
 	move_and_slide()
 	
