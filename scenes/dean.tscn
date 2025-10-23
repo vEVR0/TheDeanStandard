@@ -1,27 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds0t20abynf50"]
+[gd_scene load_steps=6 format=3 uid="uid://ds0t20abynf50"]
 
-[ext_resource type="Texture2D" uid="uid://c83afu83tkyu6" path="res://images/dean.png" id="1_6p3xl"]
 [ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://scripts/dean.gd" id="1_tn4m3"]
+[ext_resource type="Texture2D" uid="uid://bjd3jegj1a23n" path="res://! assets/dean-16x.png" id="2_gjcyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67gn6"]
+atlas = ExtResource("2_gjcyh")
+region = Rect2(10, 18, 12, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tn4m3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_6p3xl")
+"texture": SubResource("AtlasTexture_67gn6")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_shaom"]
+radius = 4.0
+height = 12.0
 
 [node name="Dean" type="CharacterBody2D"]
 script = ExtResource("1_tn4m3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.048406858, 0.04840686)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tn4m3")
+animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_shaom")
