@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
-	if global_position.distance_to(dean.global_position) > 20:
+	if global_position.distance_to(dean.global_position) > 1:
 		position += transform.x * SPEED * delta
 	look_at(dean.global_position)
 	
