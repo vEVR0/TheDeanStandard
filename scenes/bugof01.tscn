@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cno6shrg2lr0e"]
+[gd_scene load_steps=7 format=3 uid="uid://cno6shrg2lr0e"]
 
 [ext_resource type="Texture2D" uid="uid://br3u6alfx67vg" path="res://images/bug.png" id="1_j426k"]
 [ext_resource type="Script" uid="uid://div7w3xeeu5a1" path="res://scripts/bugof01.gd" id="2_7hnnw"]
+[ext_resource type="Script" uid="uid://nekaioukx483" path="res://scripts/killbox.gd" id="3_7hnnw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_huj20"]
 animations = [{
@@ -15,6 +16,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j426k"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pfnhj"]
 radius = 6.0
 height = 16.0
 
@@ -33,3 +38,13 @@ animation = &"new_animation"
 position = Vector2(-2, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_j426k")
+
+[node name="Killbox" type="Area2D" parent="."]
+script = ExtResource("3_7hnnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(-2, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_pfnhj")
+
+[connection signal="body_shape_entered" from="Killbox" to="Killbox" method="_on_body_shape_entered"]
