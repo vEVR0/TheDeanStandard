@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var dean: CharacterBody2D = %Dean
+@onready var dean: CharacterBody2D = $"../Dean"
+
 
 var SPEED = 100
 
