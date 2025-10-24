@@ -147,36 +147,34 @@ sources/0 = SubResource("TileSetAtlasSource_sugp2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = -5115.0
-offset_top = -2227.0
-offset_right = 5223.0
-offset_bottom = 3762.0
+offset_left = -4161.0
+offset_top = -2289.0
+offset_right = 6177.0
+offset_bottom = 3700.0
 texture = ExtResource("1_tbgi4")
 stretch_mode = 1
 
 [node name="Dean" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(104, 28)
 
+[node name="Umbrella" parent="Dean" instance=ExtResource("3_sugp2")]
+
 [node name="Camera2D" type="Camera2D" parent="Dean"]
 zoom = Vector2(4.415, 4.415)
 position_smoothing_speed = 20.0
-
-[node name="Umbrella" parent="Dean" instance=ExtResource("3_sugp2")]
-position = Vector2(2, 12)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-2, -74)
 tile_map_data = PackedByteArray("AAD8/wUAAAADAAIAAAD9/wUAAAADAAIAAAD9/wYAAAADAAIAAAD+/wYAAAADAAIAAAD//wYAAAADAAIAAAAAAAYAAAADAAIAAAABAAYAAAADAAIAAAABAAcAAAADAAIAAAACAAcAAAADAAIAAAADAAcAAAADAAIAAAAEAAcAAAADAAIAAAAFAAcAAAADAAIAAAAGAAcAAAADAAIAAAAHAAcAAAADAAIAAAAIAAcAAAADAAIAAAAJAAcAAAADAAIAAAAKAAcAAAADAAIAAAALAAcAAAADAAIAAAAMAAcAAAADAAIAAAANAAcAAAADAAIAAAAOAAcAAAADAAIAAAAPAAcAAAADAAIAAAAQAAYAAAADAAIAAAARAAYAAAADAAIAAAASAAYAAAADAAIAAAATAAYAAAADAAIAAAAUAAYAAAADAAIAAAAVAAYAAAADAAIAAAA=")
 tile_set = SubResource("TileSet_jyhfs")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_jyhfs")]
+[node name="Bugof01" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="BugSpawner" type="Node2D" parent="."]
 position = Vector2(-126, -72)
 script = ExtResource("6_tefeu")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="BugSpawner" method="_on_timer_timeout"]

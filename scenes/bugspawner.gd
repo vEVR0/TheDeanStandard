@@ -17,4 +17,6 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var instantiate_bug = bugof01.instantiate()
+	instantiate_bug.position.x = randi_range(-1000,1000)
+	instantiate_bug.position.y = randi_range(-1000,1000)
 	add_sibling(instantiate_bug)
