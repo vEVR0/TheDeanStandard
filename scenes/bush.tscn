@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsiqkdcnbab5j"]
+
+[ext_resource type="Texture2D" uid="uid://cl7ot2wvqag02" path="res://! assets/bush.png" id="1_lad4k"]
+[ext_resource type="Script" uid="uid://dsgb1kmp23enn" path="res://scripts/bush.gd" id="2_ehqem"]
+
+[node name="Bush" type="Sprite2D"]
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("1_lad4k")
+script = ExtResource("2_ehqem")

@@ -1,6 +1,9 @@
 extends AnimatedSprite2D
 
+@onready var label: Label = $"../../Label"
 @onready var bugof_01: CharacterBody2D = $"../../../Bugof01"
+
+var bugcounter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,3 +19,5 @@ func _process(delta: float) -> void:
 
 func _on_killbox_body_entered(body: Node2D) -> void:
 	body.queue_free()
+	bugcounter += 1
+	label.text = str(bugcounter)
