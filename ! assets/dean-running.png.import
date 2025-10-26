@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://havq14reml0g"
-path="res://.godot/imported/deanrunningdown-wip.png-8f53d5ce1a0ad340211c387d75385206.ctex"
+uid="uid://ytf537ecq4nf"
+path="res://.godot/imported/dean-running.png-dae9314cd56202290ed2cfc9cfdf17c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/ase/deanrunningdown-wip.png"
-dest_files=["res://.godot/imported/deanrunningdown-wip.png-8f53d5ce1a0ad340211c387d75385206.ctex"]
+source_file="res://! assets/dean-running.png"
+dest_files=["res://.godot/imported/dean-running.png-dae9314cd56202290ed2cfc9cfdf17c6.ctex"]
 
 [params]
 
