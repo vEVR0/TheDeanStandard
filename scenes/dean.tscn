@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://ds0t20abynf50"]
 
 [ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://scripts/dean.gd" id="1_tn4m3"]
-[ext_resource type="Texture2D" uid="uid://dn56uto7nk8hb" path="res://! assets/ase/dean-idle.png" id="2_shaom"]
-[ext_resource type="Texture2D" uid="uid://ytf537ecq4nf" path="res://! assets/dean-running.png" id="3_qlthw"]
+[ext_resource type="Texture2D" uid="uid://c7dx5hfenockv" path="res://! assets/dean-idle.png" id="2_shaom"]
+[ext_resource type="Texture2D" uid="uid://bp1mbmaup08yh" path="res://! assets/dean-running.png" id="3_qlthw"]
 [ext_resource type="Texture2D" uid="uid://cohg671px6b6v" path="res://! assets/dean-running-behind.png" id="4_qlthw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlthw"]
@@ -17,19 +17,19 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("2_shaom")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_shaom"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4psd0"]
 atlas = ExtResource("3_qlthw")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4psd0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydgfr"]
 atlas = ExtResource("3_qlthw")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydgfr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_455ae"]
 atlas = ExtResource("3_qlthw")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_455ae"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4hc1"]
 atlas = ExtResource("3_qlthw")
 region = Rect2(96, 0, 32, 32)
 
@@ -67,9 +67,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_shaom")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4psd0")
 }, {
 "duration": 1.0,
@@ -77,6 +74,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_455ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4hc1")
 }],
 "loop": true,
 "name": &"running",
@@ -114,8 +114,9 @@ script = ExtResource("1_tn4m3")
 texture_filter = 1
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_tn4m3")
-animation = &"running_behind"
+animation = &"running"
 autoplay = "idle"
+frame_progress = 0.6716338
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_shaom")
