@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var dean: CharacterBody2D = $"../Dean"
 
 
-var SPEED = 100
+var SPEED = 110
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,8 +17,7 @@ func _process(delta: float) -> void:
 		position += transform.x * SPEED * delta
 	look_at(dean.global_position)
 	
-	#global_position.x = global_position.x + (sin(rotation_degrees))
-	#global_position.y = global_position.y + (cos(rotation_degrees))
+
 	
 	
 	

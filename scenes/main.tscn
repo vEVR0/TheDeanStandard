@@ -1306,10 +1306,6 @@ stretch_mode = 1
 position = Vector2(104, 28)
 collision_layer = 1
 
-[node name="Camera2D" type="Camera2D" parent="Dean"]
-zoom = Vector2(4.415, 4.415)
-position_smoothing_speed = 20.0
-
 [node name="Label" type="Label" parent="Dean"]
 z_index = 1000
 z_as_relative = false
@@ -1318,6 +1314,9 @@ offset_left = -124.0
 offset_top = -69.0
 offset_right = -84.0
 offset_bottom = -46.0
+
+[node name="Camera2D" type="Camera2D" parent="Dean"]
+zoom = Vector2(3.865, 3.865)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-2, -74)

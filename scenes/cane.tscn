@@ -119,12 +119,9 @@ frame = 10
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10.875, -1.5000001)
+position = Vector2(13.875, -1.5000005)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_2mvjn")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5.045, 5.045)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

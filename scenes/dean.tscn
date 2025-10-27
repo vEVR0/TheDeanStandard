@@ -113,7 +113,7 @@ script = ExtResource("1_tn4m3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -1)
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_tn4m3")
 animation = &"running"
 autoplay = "idle"
