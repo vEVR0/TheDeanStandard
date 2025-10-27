@@ -3,7 +3,7 @@ extends Node2D
 
 const bugof01 = preload("res://scenes/bugof01.tscn")
 var num_of_bugs = 0
-var max_bugs = 1 
+var max_bugs = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,14 +1,16 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dean: CharacterBody2D = $"."
 
 
-const SPEED = 300.0
+const SPEED = 100.0
 
 
 func _physics_process(delta: float) -> void:
 	
 	
 	var leftright := Input.get_axis("left", "right")
+	
 	print(leftright)
 	if leftright:
 		velocity.x = leftright * SPEED
