@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db7fp5l0mkreo"
-path="res://.godot/imported/dean-idle.png-1b44aed46b858680daf152c328795e09.ctex"
+uid="uid://cohg671px6b6v"
+path="res://.godot/imported/dean-running-behind.png-d6a94aa9c340e89eb5ff79bf728f1718.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/dean-idle.png"
-dest_files=["res://.godot/imported/dean-idle.png-1b44aed46b858680daf152c328795e09.ctex"]
+source_file="res://! assets/dean-running-behind.png"
+dest_files=["res://.godot/imported/dean-running-behind.png-d6a94aa9c340e89eb5ff79bf728f1718.ctex"]
 
 [params]
 
