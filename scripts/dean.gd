@@ -12,7 +12,6 @@ func unflip_cane():
 	animated_sprite_2d.scale.x = 1
 
 func _physics_process(delta: float) -> void:
-	print(Globals.health)
 	var mouse_position_var = get_local_mouse_position()
 	
 	if mouse_position_var.x < 0:

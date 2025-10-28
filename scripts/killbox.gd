@@ -6,6 +6,7 @@ extends Area2D
 var InDean = false
 
 
+
 func _ready() -> void:
 	timer.wait_time = Globals.invuntime
 
@@ -17,7 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body == dean:
-		Globals.health += -5
+		Globals.lose_health(5)
 		timer.start()
 	
 
@@ -26,4 +27,4 @@ func _on_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, l
 
 
 func _on_timer_timeout() -> void:
-	Globals.health += -5
+	Globals.lose_health(5)
