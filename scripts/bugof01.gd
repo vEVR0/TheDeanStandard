@@ -1,19 +1,17 @@
 extends CharacterBody2D
 
 @onready var dean: CharacterBody2D = $"../Dean"
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 
-
-var SPEED = 110
+var SPEED = 90
 
 # Called when the node enters the scene tree for the first time.dddddd
 func _ready() -> void:
-	collision_shape_2d.disabled = true
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if global_position.distance_to(dean.global_position) > 1:

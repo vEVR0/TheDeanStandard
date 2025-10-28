@@ -2,8 +2,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dean: CharacterBody2D = $"."
 
-
 const SPEED = 100.0
+
 
 func flip_cane():
 	animated_sprite_2d.scale.x = -1
@@ -12,7 +12,7 @@ func unflip_cane():
 	animated_sprite_2d.scale.x = 1
 
 func _physics_process(delta: float) -> void:
-	print(get_local_mouse_position())
+	print(Globals.health)
 	var mouse_position_var = get_local_mouse_position()
 	
 	if mouse_position_var.x < 0:

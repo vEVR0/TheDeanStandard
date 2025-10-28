@@ -1,17 +1,28 @@
 extends Area2D
 
+@onready var timer: Timer = $Timer
 @onready var dean: CharacterBody2D = $"../../Dean"
 
-# Called when the node enters the scene tree for the first time.
+var InDean = false
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	timer.wait_time = Globals.invuntime
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if Globals.health < 1:
+		dean.queue_free()
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body == dean:
-		body.queue_free()
+	Globals.health += -5
+	timer.start()
+	
+
+func _on_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	timer.stop()
+
+
+func _on_timer_timeout() -> void:
+	Globals.health += -5
