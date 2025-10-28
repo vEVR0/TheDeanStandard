@@ -11,7 +11,6 @@ func _ready() -> void:
 	pass
 
 
-
 func _process(delta: float) -> void:
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if global_position.distance_to(dean.global_position) > 1:
