@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgfwldr4mb0pk"]
+[gd_scene load_steps=9 format=4 uid="uid://cgfwldr4mb0pk"]
 
 [ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://co5emeafdp2j0" path="res://! assets/grass-dots.png" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://84yxg064xdf6" path="res://scenes/Healthbar.tscn" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://cjlmhr7nteylr" path="res://! assets/realdean.png" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://7wny7e0ewryl" path="res://scripts/bushspawner.gd" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://djh5jo7xvlk3p" path="res://scripts/bugspawner.gd" id="6_tefeu"]
@@ -1317,6 +1318,9 @@ offset_bottom = -46.0
 
 [node name="Camera2D" type="Camera2D" parent="Dean"]
 zoom = Vector2(3.865, 3.865)
+
+[node name="Healthbar" parent="Dean" instance=ExtResource("3_tefeu")]
+position = Vector2(-102, -65)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-2, -74)

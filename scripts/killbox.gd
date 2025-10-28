@@ -16,8 +16,9 @@ func _process(delta: float) -> void:
 		dean.queue_free()
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	Globals.health += -5
-	timer.start()
+	if body == dean:
+		Globals.health += -5
+		timer.start()
 	
 
 func _on_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
