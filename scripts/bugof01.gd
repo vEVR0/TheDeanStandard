@@ -10,7 +10,7 @@ var SPEED = 110
 
 # Called when the node enters the scene tree for the first time.dddddd
 func _ready() -> void:
-	collision_shape_2d.disabled = true
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
