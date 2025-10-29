@@ -12,4 +12,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	set_frame((Globals.health/(Globals.maxhealth/30))-1)
-	print(sprite_frames)
+	#print(sprite_frames)

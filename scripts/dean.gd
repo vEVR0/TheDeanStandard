@@ -1,6 +1,9 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dean: CharacterBody2D = $"."
+@onready var cooldown_particles: GPUParticles2D = $CooldownParticles
+@onready var cooldown_particle_timer: Timer = $CooldownParticleTimer
+
 
 const SPEED = 100.0
 
@@ -12,6 +15,10 @@ func unflip_cane():
 	animated_sprite_2d.scale.x = 1
 
 func _physics_process(delta: float) -> void:
+	if Globals.cooldownparticles:
+		cooldown_particles.emitting = true
+		cooldown_particle_timer.start()
+		Globals.cooldownparticles = false
 	var mouse_position_var = get_local_mouse_position()
 	
 	if mouse_position_var.x < 0:
@@ -23,7 +30,6 @@ func _physics_process(delta: float) -> void:
 
 	var leftright := Input.get_axis("left", "right")
 	
-	print(leftright)
 	if leftright:
 		velocity.x = leftright * SPEED
 		#if leftright > 0:
@@ -51,3 +57,9 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("idle")
 	
 	move_and_slide()
+
+
+func _on_cooldown_particle_timer_timeout() -> void:
+	print("timeadsfasdfasdjfhaksjdhfjashdfkjhaksdjfhjkasdhfkjahsdfr")
+	Globals.cooldownparticles = false
+	cooldown_particles.emitting = false
