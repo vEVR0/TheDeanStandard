@@ -101,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mvjn"]
-size = Vector2(3.0000002, 10.25)
+size = Vector2(3.0000002, 18)
 
 [node name="Area2D" type="Area2D"]
 rotation = 6.2831855
@@ -119,12 +119,12 @@ frame = 10
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13.875, -1.5000005)
+position = Vector2(10, -1.5000007)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_2mvjn")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.7
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

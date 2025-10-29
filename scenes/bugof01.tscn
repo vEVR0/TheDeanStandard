@@ -21,7 +21,7 @@ height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pfnhj"]
 radius = 6.0
-height = 16.0
+height = 20.0
 
 [node name="Bugof01" type="CharacterBody2D"]
 collision_layer = 6
@@ -44,7 +44,7 @@ collision_layer = 128
 script = ExtResource("3_7hnnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
-position = Vector2(-2, 0)
+position = Vector2(-1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_pfnhj")
 
