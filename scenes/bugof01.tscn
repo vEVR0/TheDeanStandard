@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"new_animation_1",
-"speed": 40.0
+"speed": 100.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j426k"]
@@ -110,7 +110,7 @@ position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_huj20")
 animation = &"new_animation_1"
 autoplay = "new_animation_1"
-frame_progress = 0.21445331
+frame_progress = 0.002323995
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
