@@ -1311,10 +1311,10 @@ collision_layer = 1
 z_index = 1000
 z_as_relative = false
 texture_filter = 1
-offset_left = -130.0
-offset_top = -51.0
-offset_right = -90.0
-offset_bottom = -28.0
+offset_left = -6.0
+offset_top = -80.0
+offset_right = 34.0
+offset_bottom = -57.0
 
 [node name="Camera2D" type="Camera2D" parent="Dean"]
 zoom = Vector2(3.055, 3.055)

@@ -2,9 +2,8 @@ extends CharacterBody2D
 
 @onready var dean: CharacterBody2D = $"../Dean"
 
-
-
-var SPEED = 90
+var SPEED = randi_range(80,90)
+var HEALTH = 2
 
 # Called when the node enters the scene tree for the first time.dddddd
 func _ready() -> void:
@@ -19,8 +18,5 @@ func _process(delta: float) -> void:
 	look_at(dean.global_position)
 
 	
-	
-	
-	move_and_slide()
 	
 	

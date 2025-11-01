@@ -105,8 +105,8 @@ size = Vector2(3.0000002, 18)
 
 [node name="Area2D" type="Area2D"]
 rotation = 6.2831855
-collision_layer = 4
-collision_mask = 0
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_77tqj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
