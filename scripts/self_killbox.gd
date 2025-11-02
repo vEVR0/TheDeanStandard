@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		print("die")
 
 func _on_area_entered(area: Area2D) -> void:
-	health == health - 1
+	health -= 1
 	print(health)
 	
 	# referencing same code thing shimaing

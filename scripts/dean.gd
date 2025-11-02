@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dean: CharacterBody2D = $"."
 @onready var cooldown_particles: GPUParticles2D = $CooldownParticles
