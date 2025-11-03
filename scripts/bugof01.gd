@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+
 @onready var dean: CharacterBody2D = $"../Dean"
 
 var SPEED = randi_range(80,90)
-var HEALTH = 2
+var health = 100
 
 
 func _process(delta: float) -> void:
@@ -12,7 +13,11 @@ func _process(delta: float) -> void:
 	if global_position.distance_to(dean.global_position) > 1:
 		position += transform.x * SPEED * delta
 	look_at(dean.global_position)
+	
+	if health < 1:
+		queue_free()
 
-	
-	
-	
+
+
+func lose_health(damage):
+	health -= damage

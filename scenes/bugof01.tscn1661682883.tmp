@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cno6shrg2lr0e"]
+[gd_scene load_steps=20 format=3 uid="uid://cno6shrg2lr0e"]
 
 [ext_resource type="Texture2D" uid="uid://br3u6alfx67vg" path="res://images/bug.png" id="1_j426k"]
 [ext_resource type="Script" uid="uid://div7w3xeeu5a1" path="res://scripts/bugof01.gd" id="2_7hnnw"]
 [ext_resource type="Script" uid="uid://nekaioukx483" path="res://scripts/killbox.gd" id="3_7hnnw"]
 [ext_resource type="Texture2D" uid="uid://fmeuswlkxf3j" path="res://! assets/bugpixelart.png" id="3_pfnhj"]
+[ext_resource type="Script" uid="uid://defi8fn3efxye" path="res://scripts/self_killbox.gd" id="5_0jihv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jihv"]
 atlas = ExtResource("3_pfnhj")
@@ -99,9 +100,13 @@ height = 22.0
 radius = 6.0
 height = 22.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0jihv"]
+radius = 6.0
+height = 21.999647
+
 [node name="Bugof01" type="CharacterBody2D"]
-collision_layer = 6
-collision_mask = 0
+collision_layer = 2
+collision_mask = 8
 script = ExtResource("2_7hnnw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -118,7 +123,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_j426k")
 
 [node name="Killbox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 128
 script = ExtResource("3_7hnnw")
 
 [node name="KillboxShape" type="CollisionShape2D" parent="Killbox"]
@@ -128,6 +133,20 @@ shape = SubResource("CapsuleShape2D_pfnhj")
 
 [node name="Timer" type="Timer" parent="Killbox"]
 
+[node name="InvunEnemy" type="Timer" parent="Killbox"]
+wait_time = 0.5
+
+[node name="SelfKillbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_0jihv")
+
+[node name="SelfKillboxShape" type="CollisionShape2D" parent="SelfKillbox"]
+position = Vector2(2, 0)
+rotation = 1.565132
+shape = SubResource("CapsuleShape2D_0jihv")
+
 [connection signal="body_shape_entered" from="Killbox" to="Killbox" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="Killbox" to="Killbox" method="_on_body_shape_exited"]
 [connection signal="timeout" from="Killbox/Timer" to="Killbox" method="_on_timer_timeout"]
+[connection signal="area_entered" from="SelfKillbox" to="SelfKillbox" method="_on_area_entered"]

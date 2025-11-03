@@ -6,15 +6,9 @@ extends Area2D
 var InDean = false
 
 
-
 func _ready() -> void:
 	timer.wait_time = Globals.invuntime
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Globals.health < 1:
-		dean.queue_free()
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body == dean:

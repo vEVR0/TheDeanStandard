@@ -2,6 +2,7 @@ extends Node2D
 
 
 const bush = preload("res://scenes/bush.tscn")
+
 var max_bushes = 1000
 
 
