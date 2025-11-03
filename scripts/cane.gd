@@ -45,5 +45,5 @@ func _on_cooldown_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.lose_health(damage)
+	body.lose_health(damage * Globals.damagemodifier)
 	print("monket")
