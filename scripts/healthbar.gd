@@ -1,11 +1,13 @@
-extends AnimatedSprite2D
+extends TextureProgressBar
 
+var health_percent = 100
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# sets the health bar to full
-	set_frame(29)
+	pass # Replace with function body.
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# sets the frame of the health bar
-	set_frame((Globals.health/(Globals.maxhealth/30))-1)
+	health_percent = (Globals.health / Globals.maxhealth) * 100
+	value = health_percent

@@ -7,6 +7,7 @@ extends Area2D
 
 var caneooldown = 0.5
 var damage = 50
+var bugs_hit = []
 
 
 func _ready() -> void:
@@ -37,6 +38,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	collision_shape_2d.disabled = true
 	animated_sprite_2d.play("default")
 	cooldown_timer.start()
+	bugs_hit = []
 
 
 
@@ -45,5 +47,8 @@ func _on_cooldown_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	for bug in bugs_hit:
+		if bug == body:
+			return
 	body.lose_health(damage * Globals.damagemodifier)
-	print("monket")
+	bugs_hit.append(body)

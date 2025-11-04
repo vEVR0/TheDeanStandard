@@ -1,7 +1,7 @@
 extends Node
 
 
-var maxhealth = 100
+var maxhealth = 100.0
 var health = maxhealth
 var invuntime = 0.5
 var cooldownparticles: bool = false
