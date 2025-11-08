@@ -1,16 +1,20 @@
 extends Node2D
 
 
-@export var _dimensions: Vector2i = Vector2i(7,5)
+@export var _dimensions : Vector2i = Vector2i(7,5)
 @export var _start : Vector2i = Vector2i(3,0)
-@export var _critical_path_length : int = 13
+@export var _critical_path_length : int = 5
+@export var _branches : int = 3
+@export var _branch_length : Vector2i = Vector2i(1,4)
 
 var dungeon: Array
+var _branch_candidates : Array[Vector2i]
 
 func _ready() -> void:
 	_initialize_dungeon()
 	_place_entrance()
-	_generate_critical_path(_start, _critical_path_length)
+	_generate_critical_path(_start, _critical_path_length, "C")
+	_generate_branches()
 	_print_dungeon()
 
 
@@ -29,7 +33,7 @@ func _place_entrance() -> void:
 	
 	dungeon[_start.x][_start.y] = "S"
 
-func _generate_critical_path(from : Vector2i, length : int) -> bool:
+func _generate_critical_path(from : Vector2i, length : int, marker : String) -> bool:
 	if length == 0:
 		return true
 	var current : Vector2i = from
@@ -48,15 +52,28 @@ func _generate_critical_path(from : Vector2i, length : int) -> bool:
 			current.y + direction.y >= 0 and current.y + direction.y < _dimensions.y and 
 			not dungeon[current.x + direction.x][current.y + direction.y]):
 			current += direction
-			dungeon[current.x][current.y] = length
-			if _generate_critical_path(current, length - 1):
+			dungeon[current.x][current.y] = marker
+			if length > 1:
+				_branch_candidates.append(current)
+			if _generate_critical_path(current, length - 1, marker):
 				return true
 			else:
+				_branch_candidates.erase(current)
 				dungeon[current.x][current.y] = 0
 				current -= direction
 		direction = Vector2(direction.y, -direction.x)
 	return false
 
+
+func _generate_branches():
+	var branches_created : int = 0
+	var candidate : Vector2i
+	while branches_created < _branches and _branch_candidates.size():
+		candidate = _branch_candidates[randi_range(0, _branch_candidates.size() - 1)]
+		if _generate_critical_path(candidate, randi_range(_branch_length.x, _branch_length.y), str(branches_created + 1)):
+			branches_created += 1
+		else:
+			_branch_candidates.erase(candidate)
 
 
 func _print_dungeon() -> void:
