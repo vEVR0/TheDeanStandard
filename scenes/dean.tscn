@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://ds0t20abynf50"]
+[gd_scene load_steps=22 format=3 uid="uid://ds0t20abynf50"]
 
 [ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://scripts/dean.gd" id="1_tn4m3"]
 [ext_resource type="Texture2D" uid="uid://c7dx5hfenockv" path="res://! assets/dean-idle.png" id="2_shaom"]
 [ext_resource type="Texture2D" uid="uid://bp1mbmaup08yh" path="res://! assets/dean-running.png" id="3_qlthw"]
 [ext_resource type="Texture2D" uid="uid://cohg671px6b6v" path="res://! assets/dean-running-behind.png" id="4_qlthw"]
-[ext_resource type="PackedScene" uid="uid://0gs76irm66na" path="res://scenes/cane.tscn" id="5_qvv3x"]
 [ext_resource type="Texture2D" uid="uid://bm0unnpy34ic4" path="res://! assets/sparkle.png" id="6_mfpg3"]
+[ext_resource type="Script" uid="uid://bqkamr0cegdrk" path="res://scripts/pickup.gd" id="7_6gnbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlthw"]
 atlas = ExtResource("2_shaom")
@@ -117,6 +117,9 @@ gravity = Vector3(0, 3, 0)
 scale_min = 0.19999999
 scale_max = 0.19999999
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_roojp"]
+radius = 12.0
+
 [node name="Dean" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
@@ -130,9 +133,6 @@ sprite_frames = SubResource("SpriteFrames_tn4m3")
 animation = &"running"
 autoplay = "idle"
 frame_progress = 0.6716338
-
-[node name="Area2D" parent="AnimatedSprite2D" instance=ExtResource("5_qvv3x")]
-position = Vector2(5, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_shaom")
@@ -151,4 +151,11 @@ process_material = SubResource("ParticleProcessMaterial_8qcam")
 wait_time = 0.1
 one_shot = true
 
+[node name="Pickup" type="Area2D" parent="."]
+script = ExtResource("7_6gnbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+shape = SubResource("CircleShape2D_roojp")
+
 [connection signal="timeout" from="CooldownParticleTimer" to="." method="_on_cooldown_particle_timer_timeout"]
+[connection signal="area_entered" from="Pickup" to="Pickup" method="_on_area_entered"]

@@ -4,7 +4,7 @@ extends Node2D
 const bugof01 = preload("res://scenes/bugof01.tscn")
 
 var num_of_bugs = 0
-var max_bugs = 1
+var max_bugs = 0
 
 
 func _on_timer_timeout() -> void:

@@ -1,11 +1,11 @@
 extends Node2D
 
 
-@export var _dimensions : Vector2i = Vector2i(7,5)
+@export var _dimensions : Vector2i = Vector2i(14,10)
 @export var _start : Vector2i = Vector2i(3,0)
 @export var _critical_path_length : int = 5
 @export var _branches : int = 3
-@export var _branch_length : Vector2i = Vector2i(1,4)
+@export var _branch_length : Vector2i = Vector2i(1,3)
 
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
