@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://cgfwldr4mb0pk"]
+[gd_scene load_steps=9 format=4 uid="uid://cgfwldr4mb0pk"]
 
 [ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://co5emeafdp2j0" path="res://! assets/grass-dots.png" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://0gs76irm66na" path="res://scenes/cane.tscn" id="3_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://cjlmhr7nteylr" path="res://! assets/realdean.png" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://7wny7e0ewryl" path="res://scripts/bushspawner.gd" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://djh5jo7xvlk3p" path="res://scripts/bugspawner.gd" id="6_tefeu"]
@@ -1329,8 +1328,5 @@ autostart = true
 script = ExtResource("6_o6xl0")
 
 [node name="GUI" parent="." instance=ExtResource("6_tipki")]
-
-[node name="Cane" parent="." instance=ExtResource("3_o6xl0")]
-position = Vector2(132, 1)
 
 [connection signal="timeout" from="BugTimer" to="BugSpawner" method="_on_timer_timeout"]

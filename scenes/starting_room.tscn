@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cb7pmyms1tgkr"]
+[gd_scene load_steps=6 format=4 uid="uid://cb7pmyms1tgkr"]
 
 [ext_resource type="Texture2D" uid="uid://cw43wkgidbg71" path="res://a.svg" id="1_qow8i"]
 
@@ -138,7 +138,19 @@ physics_layer_0/collision_layer = 11
 physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_jar54")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qow8i"]
+size = Vector2(34, 34)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qow8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qow8i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="StartingRoom" type="Node2D"]
 
@@ -149,5 +161,12 @@ tile_set = SubResource("TileSet_ehs05")
 
 [node name="Area2D" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.999999, 81.875)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_qow8i")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(9.999999, 82)
+scale = Vector2(0.2695312, 0.2675781)
 sprite_frames = SubResource("SpriteFrames_qow8i")

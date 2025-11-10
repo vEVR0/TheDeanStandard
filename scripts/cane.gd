@@ -8,9 +8,13 @@ class_name Weapon
 var caneooldown = 0.5
 var damage = 50
 var bugs_hit = []
+var active : bool
 
 
 func _ready() -> void:
+	# change to false when not picked up. maybe need to do this some other way.
+	active = true
+	
 	# disables collion of cane
 	collision_shape_2d.disabled = true
 	
@@ -21,15 +25,16 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# cane looking at mouse cursor
-	look_at(get_global_mouse_position())
-	rotation_degrees = wrap(rotation_degrees, 0, 360)
-	
-	# attacking
-	if Input.is_action_just_pressed("attack"):
-		if cooldown_timer.is_stopped():
-			collision_shape_2d.disabled = false
-			animated_sprite_2d.play("attack")
+	if active:
+		# cane looking at mouse cursor
+		look_at(get_global_mouse_position())
+		rotation_degrees = wrap(rotation_degrees, 0, 360)
+		
+		# attacking
+		if Input.is_action_just_pressed("attack"):
+			if cooldown_timer.is_stopped():
+				collision_shape_2d.disabled = false
+				animated_sprite_2d.play("attack")
 
 
 
@@ -52,3 +57,10 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 	body.lose_health(damage * Globals.damagemodifier)
 	bugs_hit.append(body)
+
+
+func activate():
+	active = true
+
+func deactivate():
+	active = false
