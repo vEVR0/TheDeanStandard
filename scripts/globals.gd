@@ -9,6 +9,8 @@ var damagemodifier = 1.0
 var room_count : int = 0
 var boss_chance 
 
+var already_room : bool = false
+
 var rooms = [
 	{"scene": preload("res://scenes/exampleroom1.tscn"), "weight": 50},
 	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50},
@@ -21,6 +23,9 @@ func lose_health(damage):
 
 
 func random_room():
+	if already_room:
+		return
+	already_room = true
 	room_count += 1
 	print(room_count)
 	if boss_room():
@@ -29,6 +34,7 @@ func random_room():
 		print("no boss")
 		var chosen_room = choose_random_room()
 		load_room(chosen_room)
+	already_room = false
 
 
 
