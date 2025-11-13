@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="dean"
-run/main_scene="uid://cgfwldr4mb0pk"
+run/main_scene="uid://cb7pmyms1tgkr"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
 Globals="*res://scripts/globals.gd"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [input]
 
