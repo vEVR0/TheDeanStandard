@@ -12,6 +12,7 @@ var previousx = 0
 var previousy = 0
 
 
+
 func _physics_process(delta: float) -> void:
 	if Globals.health < 1:
 		queue_free()
@@ -68,11 +69,9 @@ func _on_cooldown_particle_timer_timeout() -> void:
 	
 func Diagonal_equalizing():
 	distance = float((float(global_position.x-previousx)**2)+float(global_position.y-previousy)**2)**0.5
-	if distance > BASESPEED*Globals.speedmodifier / 59.999:
-		SPEED = (BASESPEED * Globals.speedmodifier / (2**2))*2.82849
+	if distance > BASESPEED*Globals.speedmodifier / 60:
+		SPEED = (BASESPEED * Globals.speedmodifier / (2**0.5))
 	else:
 		SPEED = BASESPEED * Globals.speedmodifier
 	previousx = global_position.x
 	previousy = global_position.y
-	print(distance)
-	
