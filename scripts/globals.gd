@@ -6,6 +6,7 @@ var health = maxhealth
 var invuntime = 0.5
 var cooldownparticles : bool = false
 var damagemodifier = 1.0
+var speedmodifier = 1.0
 var room_count : int = 0
 var boss_chance 
 
