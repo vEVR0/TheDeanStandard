@@ -49,7 +49,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
-	Diagonal_equalizing()
+	# Diagonal
+	if leftright != 0 and updown != 0:
+		SPEED = (BASESPEED * Globals.speedmodifier / (2**0.5) )
+	else:
+		SPEED = BASESPEED * Globals.speedmodifier
 	
 	# animation
 	if updown == -1.0:
@@ -67,13 +71,5 @@ func _on_cooldown_particle_timer_timeout() -> void:
 	# stops particles after the timer ends
 	cooldown_particles.emitting = false
 	
-func Diagonal_equalizing():
-	distance = float((float(global_position.x-previousx)**2)+float(global_position.y-previousy)**2)**0.5
-	if distance > BASESPEED*Globals.speedmodifier / 59.999:
-		SPEED = (BASESPEED * Globals.speedmodifier / (2**0.5) ) * 1.001
-	else:
-		SPEED = BASESPEED * Globals.speedmodifier
-	previousx = global_position.x
-	previousy = global_position.y
-	print(distance)
-	print(SPEED)
+
+	
