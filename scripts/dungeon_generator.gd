@@ -1,11 +1,11 @@
 extends Node2D
 
 
-@export var _dimensions : Vector2i = Vector2i(14,10)
+@export var _dimensions : Vector2i = Vector2i(10,10)
 @export var _start : Vector2i = Vector2i(3,0)
-@export var _critical_path_length : int = 5
+@export var _critical_path_length : int = 4
 @export var _branches : int = 3
-@export var _branch_length : Vector2i = Vector2i(1,3)
+@export var _branch_length : Vector2i = Vector2i(1,2)
 
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
@@ -13,7 +13,7 @@ var _branch_candidates : Array[Vector2i]
 func _ready() -> void:
 	_initialize_dungeon()
 	_place_entrance()
-	_generate_critical_path(_start, _critical_path_length, "C")
+	_generate_critical_path(_start, _critical_path_length, "C", true)
 	_generate_branches()
 	_print_dungeon()
 
@@ -33,9 +33,12 @@ func _place_entrance() -> void:
 	
 	dungeon[_start.x][_start.y] = "S"
 
-func _generate_critical_path(from : Vector2i, length : int, marker : String) -> bool:
+func _generate_critical_path(from : Vector2i, length : int, marker : String, critical : bool) -> bool:
+	var current_critical = critical
 	if length == 0:
 		return true
+	if length == 1 and critical:
+		marker = "B"
 	var current : Vector2i = from
 	var direction : Vector2i
 	match randi_range(0,3):
@@ -53,9 +56,9 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String) -> 
 			not dungeon[current.x + direction.x][current.y + direction.y]):
 			current += direction
 			dungeon[current.x][current.y] = marker
-			if length > 1:
+			if length > 2:
 				_branch_candidates.append(current)
-			if _generate_critical_path(current, length - 1, marker):
+			if _generate_critical_path(current, length - 1, marker, current_critical):
 				return true
 			else:
 				_branch_candidates.erase(current)
@@ -70,7 +73,7 @@ func _generate_branches():
 	var candidate : Vector2i
 	while branches_created < _branches and _branch_candidates.size():
 		candidate = _branch_candidates[randi_range(0, _branch_candidates.size() - 1)]
-		if _generate_critical_path(candidate, randi_range(_branch_length.x, _branch_length.y), str(branches_created + 1)):
+		if _generate_critical_path(candidate, randi_range(_branch_length.x, _branch_length.y), str(branches_created + 1), false):
 			branches_created += 1
 		else:
 			_branch_candidates.erase(candidate)
