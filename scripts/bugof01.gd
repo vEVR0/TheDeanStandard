@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var dean: CharacterBody2D = $"../Dean"
 
-var SPEED = randi_range(80,90)
+var SPEED = 0
 var health = 100
 
 

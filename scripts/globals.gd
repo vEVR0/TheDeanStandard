@@ -17,10 +17,12 @@ var rooms = [
 	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50},
 ]
 
-
+signal attacking
 
 func lose_health(damage):
 	health -= damage
+	
+
 
 
 func random_room():

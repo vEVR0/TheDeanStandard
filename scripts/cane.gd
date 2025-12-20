@@ -8,7 +8,7 @@ class_name Weapon
 var caneooldown = 0.5
 var damage = 50
 var bugs_hit = []
-
+var damagedealt = 0
 
 func _ready() -> void:
 	# disables collion of cane
@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	# attacking
 	if Input.is_action_just_pressed("attack"):
 		if cooldown_timer.is_stopped():
+			
 			collision_shape_2d.disabled = false
 			animated_sprite_2d.play("attack")
 
@@ -51,5 +52,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if bug == body:
 			return
 	print("poopoo")
-	body.lose_health(damage * Globals.damagemodifier)
+	Globals.emit_signal("attacking")
+	damagedealt = damage * Globals.damagemodifier
+	body.lose_health(damagedealt)
 	bugs_hit.append(body)
