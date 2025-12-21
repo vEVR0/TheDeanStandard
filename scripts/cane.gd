@@ -54,5 +54,6 @@ func _on_body_entered(body: Node2D) -> void:
 	print("poopoo")
 	Globals.emit_signal("attacking")
 	damagedealt = damage * Globals.damagemodifier
+	DamageNumbers.Display_DamageNumber(damagedealt, body.global_position.x-9, body.global_position.y-15 )
 	body.lose_health(damagedealt)
 	bugs_hit.append(body)

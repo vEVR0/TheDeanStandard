@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var dean: CharacterBody2D = $"../Dean"
 
 var SPEED = 0
-var health = 100
+var health = 1000000000
 
 
 func _process(delta: float) -> void:
