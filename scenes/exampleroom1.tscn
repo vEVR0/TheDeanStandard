@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://cjgivce3p0dud"]
 
-[ext_resource type="Script" uid="uid://tkq60cnab1ok" path="res://scripts/starting_room.gd" id="1_sccv8"]
+[ext_resource type="Script" uid="uid://tkq60cnab1ok" path="res://scripts/startingroom.gd" id="1_sccv8"]
 [ext_resource type="Texture2D" uid="uid://cw43wkgidbg71" path="res://a.svg" id="2_cq6yy"]
 [ext_resource type="Texture2D" uid="uid://djpuhepx7qis5" path="res://! assets/big-tileset.png" id="2_gvays"]
 [ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="3_gvays"]

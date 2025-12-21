@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=4 uid="uid://cb7pmyms1tgkr"]
+
+[ext_resource type="Script" uid="uid://tkq60cnab1ok" path="res://scripts/startingroom.gd" id="1_tppiy"]
+[ext_resource type="Texture2D" uid="uid://co5emeafdp2j0" path="res://! assets/grass-dots.png" id="2_d33ob"]
+[ext_resource type="Texture2D" uid="uid://djpuhepx7qis5" path="res://! assets/big-tileset.png" id="3_csgho"]
+[ext_resource type="Texture2D" uid="uid://cw43wkgidbg71" path="res://a.svg" id="4_xmiuy"]
+[ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="5_7io85"]
+[ext_resource type="PackedScene" uid="uid://cuct7sgqq201w" path="res://scenes/performativebag.tscn" id="6_vdm5e"]
+[ext_resource type="PackedScene" uid="uid://cno6shrg2lr0e" path="res://scenes/bugof01.tscn" id="7_0ulnc"]
+[ext_resource type="PackedScene" uid="uid://bv4vf17gwhvg1" path="res://scenes/gui.tscn" id="8_cby28"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oaisi"]
+texture = ExtResource("3_csgho")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.057598, -3.2340155, -3.1838813, -3.4173164, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.057598, -8, -3.2374563)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 3.5971737, 8, 3.4173164, -0.8992939, 2.877739, -2.6978807, -8, -2.6978807)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.2374573, -8, -2.87774, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.136751, -8, 8, -8, 8, 8, 3.7770329, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.2374573, -8, -3.2374573, 4.136751, 8, 4.4964695, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.5971756, 8, 3.5971756, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.5971756, 4.4964676, 3.5971756, 4.4964676, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.4173155, -8, -3.4173155)
+
+[sub_resource type="TileSet" id="TileSet_1v1w4"]
+physics_layer_0/collision_layer = 129
+sources/0 = SubResource("TileSetAtlasSource_oaisi")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qow8i"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qow8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xmiuy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StartingRoom" type="Node2D"]
+script = ExtResource("1_tppiy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -64.0
+offset_top = -14.0
+offset_right = 497.0
+offset_bottom = 282.0
+texture = ExtResource("2_d33ob")
+stretch_mode = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAACAAAAAAAFAAAAAAADAAAAAAAFAAAAAAAEAAAAAAAFAAAAAAAFAAAAAAAFAAAAAAAGAAAAAAAFAAAAAAAHAAAAAAAFAAAAAAAIAAAAAAAFAAAAAAAJAAAAAAAFAAAAAAAKAAAAAAAFAAMAAAALAAAAAAAFAAAAAAAMAAAAAAAFAAAAAAANAAAAAAAFAAAAAAAOAAAAAAAFAAAAAAAPAAAAAAAFAAAAAAAQAAAAAAAFAAAAAAARAAAAAAAFAAMAAAASAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAMAAAAEAAEAAAAAAAQAAAAEAAEAAAAAAAUAAAAEAAEAAAAAAAYAAAAEAAEAAAAAAAcAAAAEAAEAAAAAAAgAAAAEAAEAAAAAAAkAAAAEAAEAAAATAAAAAAAFAAAAAAAUAAAAAAAFAAAAAAAVAAAAAAAFAAAAAAAWAAAAAAAFAAMAAAAXAAAAAAAFAAAAAAAYAAAAAAAFAAAAAAAZAAAAAAAFAAAAAAAaAAAAAAAFAAAAAAAbAAAAAAAFAAAAAAAcAAEAAAAGAAEAAAAcAAIAAAAGAAEAAAAcAAMAAAAGAAEAAAAcAAQAAAAGAAEAAAAcAAUAAAAGAAEAAAAcAAYAAAAGAAEAAAAcAAcAAAAGAAEAAAAcAAgAAAAGAAEAAAAcAAkAAAAGAAEAAAAcAAoAAAAGAAEAAAAcAAsAAAAGAAEAAAAcAAwAAAAGAAEAAAAAAAoAAAAEAAEAAAAAAAsAAAAEAAEAAAAAAAwAAAAEAAEAAAAAAA0AAAAEAAEAAAAAAA4AAAAEAAEAAAABAA8AAAAFAAIAAAACAA8AAAAFAAIAAAADAA8AAAAFAAIAAAAEAA8AAAAFAAIAAAAFAA8AAAAFAAIAAAAGAA8AAAAFAAIAAAAHAA8AAAAFAAIAAAAIAA8AAAAFAAIAAAAJAA8AAAAFAAIAAAAKAA8AAAAFAAIAAAALAA8AAAAFAAIAAAAMAA8AAAAFAAIAAAANAA8AAAAFAAIAAAAOAA8AAAAFAAIAAAAPAA8AAAAFAAIAAAAQAA8AAAAFAAIAAAARAA8AAAAFAAIAAAASAA8AAAAFAAIAAAATAA8AAAAFAAIAAAAUAA8AAAAFAAIAAAAVAA8AAAAFAAIAAAAWAA8AAAAFAAIAAAAXAA8AAAAFAAIAAAAYAA8AAAAFAAIAAAAZAA8AAAAFAAIAAAAaAA8AAAAFAAIAAAAbAA8AAAAFAAIAAAAcAA0AAAAGAAEAAAAcAA4AAAAGAAEAAAAcAAAAAAAGAAAAAAAAAA8AAAAEAAIAAAAcAA8AAAAGAAIAAAAMAAMAAAAFAAAAAAAMAAQAAAAFAAAAAAALAAQAAAAFAAAAAAALAAUAAAAFAAAAAAALAAYAAAAFAAAAAAALAAcAAAAFAAAAAAALAAgAAAAFAAAAAAAMAAgAAAAFAAAAAAAMAAcAAAAFAAAAAAAMAAYAAAAFAAAAAAAMAAUAAAAFAAAAAAANAAcAAAAFAAAAAAANAAgAAAAFAAAAAAANAAYAAAAFAAAAAAANAAUAAAAFAAAAAAANAAQAAAAFAAAAAAANAAMAAAAFAAAAAAALAAMAAAAFAAAAAAA=")
+tile_set = SubResource("TileSet_1v1w4")
+
+[node name="LeftDoor" type="Area2D" parent="."]
+position = Vector2(16, 128)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor"]
+shape = SubResource("RectangleShape2D_qow8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftDoor"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_qow8i")
+
+[node name="RightDoor" type="Area2D" parent="."]
+position = Vector2(448, 128)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor"]
+shape = SubResource("RectangleShape2D_qow8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RightDoor"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_qow8i")
+
+[node name="TopDoor" type="Area2D" parent="."]
+position = Vector2(232, 16)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDoor"]
+shape = SubResource("RectangleShape2D_qow8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TopDoor"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_qow8i")
+
+[node name="BottomDoor" type="Area2D" parent="."]
+position = Vector2(232, 240)
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor"]
+shape = SubResource("RectangleShape2D_qow8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BottomDoor"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_qow8i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(232, 128)
+zoom = Vector2(2.483, 2.532)
+
+[node name="Dean" parent="." instance=ExtResource("5_7io85")]
+position = Vector2(148, 78)
+collision_layer = 2147483649
+
+[node name="Area2D" parent="." instance=ExtResource("6_vdm5e")]
+position = Vector2(164, 35)
+
+[node name="GUI" parent="." instance=ExtResource("8_cby28")]
+visible = false
+
+[node name="Bugof01" parent="." instance=ExtResource("7_0ulnc")]
+position = Vector2(251, 57)
+
+[connection signal="body_entered" from="LeftDoor" to="." method="_on_left_door_body_entered"]
+[connection signal="body_entered" from="RightDoor" to="." method="_on_right_door_body_entered"]
+[connection signal="body_entered" from="TopDoor" to="." method="_on_top_door_body_entered"]
+[connection signal="body_entered" from="BottomDoor" to="." method="_on_bottom_door_body_entered"]

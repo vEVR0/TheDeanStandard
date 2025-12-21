@@ -3,8 +3,8 @@ extends CharacterBody2D
 
 @onready var dean: CharacterBody2D = $"../Dean"
 
-var SPEED = 0
-var health = 1000000000
+var SPEED = randi_range(80,90)
+var health = 200
 
 
 func _process(delta: float) -> void:
@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	
 	if health < 1:
 		queue_free()
+		
+	move_and_slide()
 
 
 

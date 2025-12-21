@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 Globals="*res://scripts/globals.gd"
-DamageNumbers="*res://scripts/Damage numbers.gd"
+DamageNumbers="*res://scripts/damagenumbers.gd"
 
 [display]
 

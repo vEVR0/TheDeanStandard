@@ -15,6 +15,7 @@ var previousy = 0
 
 func _physics_process(delta: float) -> void:
 	if Globals.health < 1:
+		print("dead")
 		queue_free()
 	
 

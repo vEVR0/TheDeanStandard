@@ -1,5 +1,4 @@
-extends Area2D
-class_name Weapon
+extends weapon
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -8,7 +7,7 @@ class_name Weapon
 var caneooldown = 0.5
 var damage = 50
 var bugs_hit = []
-var damagedealt = 0
+
 
 func _ready() -> void:
 	# disables collion of cane
@@ -53,7 +52,5 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 	print("poopoo")
 	Globals.emit_signal("attacking")
-	damagedealt = damage * Globals.damagemodifier
-	DamageNumbers.Display_DamageNumber(damagedealt, body.global_position.x-9, body.global_position.y-15 )
-	body.lose_health(damagedealt)
+	weapon_damage(damage, body)
 	bugs_hit.append(body)
