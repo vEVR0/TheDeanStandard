@@ -3,9 +3,7 @@ extends Node2D
 
 @export var _dimensions : Vector2i = Vector2i(10,10)
 @export var _start : Vector2i = Vector2i(3,0)
-@export var _critical_path_length : int = 4
-@export var _branches : int = 3
-@export var _branch_length : Vector2i = Vector2i(1,2)
+@export var _critical_path_length : int = 10
 
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
@@ -14,7 +12,6 @@ func _ready() -> void:
 	_initialize_dungeon()
 	_place_entrance()
 	_generate_critical_path(_start, _critical_path_length, "C", true)
-	_generate_branches()
 	_print_dungeon()
 
 
@@ -34,6 +31,8 @@ func _place_entrance() -> void:
 	dungeon[_start.x][_start.y] = "S"
 
 func _generate_critical_path(from : Vector2i, length : int, marker : String, critical : bool) -> bool:
+	if Globals.reached_boss:
+		return true
 	var current_critical = critical
 	if length == 0:
 		return true
@@ -55,6 +54,8 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 			current.y + direction.y >= 0 and current.y + direction.y < _dimensions.y and 
 			not dungeon[current.x + direction.x][current.y + direction.y]):
 			current += direction
+			var random_room = Globals.random_room()
+			marker = str(random_room)
 			dungeon[current.x][current.y] = marker
 			if length > 2:
 				_branch_candidates.append(current)
@@ -66,17 +67,6 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 				current -= direction
 		direction = Vector2(direction.y, -direction.x)
 	return false
-
-
-func _generate_branches():
-	var branches_created : int = 0
-	var candidate : Vector2i
-	while branches_created < _branches and _branch_candidates.size():
-		candidate = _branch_candidates[randi_range(0, _branch_candidates.size() - 1)]
-		if _generate_critical_path(candidate, randi_range(_branch_length.x, _branch_length.y), str(branches_created + 1), false):
-			branches_created += 1
-		else:
-			_branch_candidates.erase(candidate)
 
 
 func _print_dungeon() -> void:

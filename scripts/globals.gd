@@ -9,12 +9,13 @@ var damagemodifier = 1.0
 var speedmodifier = 1.0
 var room_count : int = 0
 var boss_chance 
-
+var room_limit = 7 
+var reached_boss : bool = false
 var already_room : bool = false
 
 var rooms = [
-	{"scene": preload("res://scenes/exampleroom1.tscn"), "weight": 50},
-	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50},
+	{"scene": preload("res://scenes/exampleroom1.tscn"), "weight": 50, "name": "example1",},
+	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50, "name": "example2",},
 ]
 
 signal attacking
@@ -27,18 +28,15 @@ func lose_health(damage):
 
 
 func random_room():
-	if already_room:
-		return
-	already_room = true
 	room_count += 1
 	print(room_count)
 	if boss_room():
-		print("BOSS")
+		reached_boss = true
+		return "boss"
 	else:
-		print("no boss")
 		var chosen_room = choose_random_room()
-		load_room(chosen_room)
-	already_room = false
+		return chosen_room
+
 
 
 
@@ -55,28 +53,20 @@ func choose_random_room():
 		for room in rooms:
 			running_total += room.weight
 			if rand_val <= running_total:
-				return room.scene
+				return room.name
 
 
-func load_room(scene : PackedScene):
-	get_tree().call_deferred("change_scene_to_packed", scene)
+func load_room(loaded_name):
+	return loaded_name
 
 func boss_room():
-	if room_count >= 7:
+	var rooms_left = room_limit - room_count
+	if rooms_left <= 0:
+		return true
+	if boss_roll(4 * rooms_left - 2):
 		return true
 	else:
-		match room_count:
-			4:
-				if boss_roll(10):
-					return true
-			5:
-				if boss_roll(6):
-					return true
-			6:
-				if boss_roll(3):
-					return true
-			_:
-				return false
+		return false
 
 
 
