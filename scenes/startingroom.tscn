@@ -146,6 +146,8 @@ visible = false
 [node name="Bugof01" parent="." instance=ExtResource("7_0ulnc")]
 position = Vector2(251, 57)
 
+[node name="GUI2" parent="." instance=ExtResource("8_cby28")]
+
 [connection signal="body_entered" from="LeftDoor" to="." method="_on_left_door_body_entered"]
 [connection signal="body_entered" from="RightDoor" to="." method="_on_right_door_body_entered"]
 [connection signal="body_entered" from="TopDoor" to="." method="_on_top_door_body_entered"]

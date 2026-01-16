@@ -9,20 +9,20 @@ var damagemodifier = 1.0
 var speedmodifier = 1.0
 var room_count : int = 0
 var boss_chance 
-var room_limit = 7 
+var room_limit = 7
 var reached_boss : bool = false
 var already_room : bool = false
 
 var rooms = [
-	{"scene": preload("res://scenes/exampleroom1.tscn"), "weight": 50, "name": "example1",},
-	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50, "name": "example2",},
+	{"scene": preload("res://scenes/exampleroom1.tscn"), "weight": 50, "name": "1",},
+	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50, "name": "2",},
 ]
 
 signal attacking
 
 func lose_health(damage):
-	print("damage")
-	health -= damage
+	print(damage)
+	health = health - damage
 	
 
 
@@ -32,7 +32,7 @@ func random_room():
 	print(room_count)
 	if boss_room():
 		reached_boss = true
-		return "boss"
+		return "B"
 	else:
 		var chosen_room = choose_random_room()
 		return chosen_room

@@ -76,6 +76,6 @@ func _print_dungeon() -> void:
 			if dungeon[x][y]:
 				dungeon_as_string += "[" + str(dungeon[x][y]) + "]"
 			else:
-				dungeon_as_string += "   "
+				dungeon_as_string += "[ ]"
 		dungeon_as_string += '\n'
 	print(dungeon_as_string)

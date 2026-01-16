@@ -7,10 +7,10 @@
 [node name="GUI" type="CanvasLayer"]
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
-offset_left = 41.0
-offset_top = 36.0
-offset_right = 105.0
-offset_bottom = 76.0
+offset_left = 63.0
+offset_top = 79.0
+offset_right = 127.0
+offset_bottom = 119.0
 scale = Vector2(3, 3)
 texture_under = ExtResource("1_mfius")
 texture_progress = ExtResource("2_ynd5l")
