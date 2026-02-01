@@ -4,7 +4,7 @@ extends Node2D
 @export var _dimensions : Vector2i = Vector2i(10,10)
 @export var _start : Vector2i = Vector2i(3,0)
 @export var _critical_path_length : int = 10
-
+var room_position = Vector2i(0,0)
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
 
@@ -27,8 +27,16 @@ func _place_entrance() -> void:
 		_start.x = randi_range(0, _dimensions.x - 1)
 	if _start.y < 0 or _start.y >= _dimensions.y:
 		_start.y = randi_range(0, _dimensions.y - 1)
+	var starting_room = preload("res://scenes/startingroom.tscn")
+	var starting_instance = starting_room.instantiate()
+	starting_instance.position.x = 0
+	starting_instance.position.y = 0
+	add_child(starting_instance)
+	
+	
 	
 	dungeon[_start.x][_start.y] = "S"
+	
 
 func _generate_critical_path(from : Vector2i, length : int, marker : String, critical : bool) -> bool:
 	if Globals.reached_boss:
@@ -43,18 +51,31 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 	match randi_range(0,3):
 		0:
 			direction = Vector2i.UP
+			room_position.y += 256
 		1:
 			direction = Vector2i.RIGHT
+			room_position.x += 464
 		2:
 			direction = Vector2i.DOWN
+			room_position.y -= 256
 		3:
 			direction = Vector2i.LEFT
+			room_position.x -= 464
 	for i in 4:
 		if (current.x + direction.x >= 0 and current.x + direction.x < _dimensions.x and 
 			current.y + direction.y >= 0 and current.y + direction.y < _dimensions.y and 
 			not dungeon[current.x + direction.x][current.y + direction.y]):
+			
 			current += direction
+			
 			var random_room = Globals.random_room()
+			print(random_room)
+			var loaded_room = load(random_room)
+			var room_instance = loaded_room.instantiate()
+			room_instance.position.x = room_position.x
+			room_instance.position.y = room_position.y
+			add_child(room_instance)
+			
 			marker = str(random_room)
 			dungeon[current.x][current.y] = marker
 			if length > 2:

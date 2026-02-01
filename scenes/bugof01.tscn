@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cno6shrg2lr0e"]
+[gd_scene format=3 uid="uid://cno6shrg2lr0e"]
 
 [ext_resource type="Texture2D" uid="uid://br3u6alfx67vg" path="res://images/bug.png" id="1_j426k"]
 [ext_resource type="Script" uid="uid://div7w3xeeu5a1" path="res://scripts/bugof01.gd" id="2_7hnnw"]
@@ -99,12 +99,12 @@ height = 22.0
 radius = 6.0
 height = 22.0
 
-[node name="Bugof01" type="CharacterBody2D"]
+[node name="Bugof01" type="CharacterBody2D" unique_id=442421633]
 collision_layer = 4
 collision_mask = 128
 script = ExtResource("2_7hnnw")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1149239469]
 texture_filter = 1
 position = Vector2(2, 0)
 sprite_frames = SubResource("SpriteFrames_huj20")
@@ -112,21 +112,21 @@ animation = &"new_animation_1"
 autoplay = "new_animation_1"
 frame_progress = 0.002323995
 
-[node name="CollisionBox" type="CollisionShape2D" parent="."]
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1618773525]
 position = Vector2(2, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_j426k")
 
-[node name="Killbox" type="Area2D" parent="."]
+[node name="Killbox" type="Area2D" parent="." unique_id=454096418]
 collision_layer = 0
 script = ExtResource("3_7hnnw")
 
-[node name="KillboxShape" type="CollisionShape2D" parent="Killbox"]
+[node name="KillboxShape" type="CollisionShape2D" parent="Killbox" unique_id=549587260]
 position = Vector2(2, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_pfnhj")
 
-[node name="Timer" type="Timer" parent="Killbox"]
+[node name="Timer" type="Timer" parent="Killbox" unique_id=128587049]
 
 [connection signal="body_shape_entered" from="Killbox" to="Killbox" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="Killbox" to="Killbox" method="_on_body_shape_exited"]

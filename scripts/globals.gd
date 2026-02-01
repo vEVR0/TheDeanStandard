@@ -1,5 +1,7 @@
 extends Node
 
+const DUNGEONGENERATOR = preload("uid://coqd0pulakx3y")
+
 
 var maxhealth = 100
 var health = maxhealth
@@ -14,11 +16,12 @@ var reached_boss : bool = false
 var already_room : bool = false
 
 var rooms = [
-	{"scene": preload("res://scenes/exampleroom1.tscn"), "weight": 50, "name": "1",},
-	{"scene": preload("res://scenes/exampleroom2.tscn"), "weight": 50, "name": "2",},
+	{"scene": "res://scenes/exampleroom1.tscn", "weight": 50, "name": "1",},
+	{"scene": "res://scenes/exampleroom2.tscn", "weight": 50, "name": "2",},
 ]
 
 signal attacking
+
 
 func lose_health(damage):
 	print(damage)
@@ -31,8 +34,8 @@ func random_room():
 	room_count += 1
 	print(room_count)
 	if boss_room():
-		reached_boss = true
-		return "B"
+		var chosen_room = choose_random_room()
+		return chosen_room
 	else:
 		var chosen_room = choose_random_room()
 		return chosen_room
@@ -53,11 +56,9 @@ func choose_random_room():
 		for room in rooms:
 			running_total += room.weight
 			if rand_val <= running_total:
-				return room.name
+				return room.scene
 
 
-func load_room(loaded_name):
-	return loaded_name
 
 func boss_room():
 	var rooms_left = room_limit - room_count

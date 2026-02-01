@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://coqd0pulakx3y"]
+[gd_scene format=3 uid="uid://coqd0pulakx3y"]
 
 [ext_resource type="Script" uid="uid://dqonxxuhbqxts" path="res://scripts/dungeongenerator.gd" id="1_08e2k"]
+[ext_resource type="Script" uid="uid://brq2agpv46uvp" path="res://scenes/ghost.gd" id="2_x5613"]
+[ext_resource type="Texture2D" uid="uid://dt821l7xrf78m" path="res://! assets/icondean.png" id="3_7wurc"]
 
-[node name="DungeonGenerator" type="Node2D"]
+[node name="DungeonGenerator" type="Node2D" unique_id=2060820871]
 script = ExtResource("1_08e2k")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=36525210]
+script = ExtResource("2_x5613")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=29096715]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1892349859]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_7wurc")

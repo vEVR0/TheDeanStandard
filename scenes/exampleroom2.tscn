@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://cxnhfw8prvike"]
+[gd_scene format=4 uid="uid://cxnhfw8prvike"]
 
 [ext_resource type="Script" uid="uid://tkq60cnab1ok" path="res://scripts/startingroom.gd" id="1_j3j3d"]
 [ext_resource type="Texture2D" uid="uid://cw43wkgidbg71" path="res://a.svg" id="2_jjrm3"]
-[ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="3_qkpli"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jar54"]
 texture = ExtResource("2_jjrm3")
@@ -154,69 +153,61 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="StartingRoom" type="Node2D"]
+[node name="StartingRoom" type="Node2D" unique_id=927290466]
 script = ExtResource("1_j3j3d")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2054571861]
 texture_filter = 1
 tile_map_data = PackedByteArray("AAABAAAAAQADAAAAAAACAAAAAQADAAAAAAADAAAAAQADAAAAAAAEAAAAAQADAAAAAAAFAAAAAQADAAAAAAAGAAAAAQADAAAAAAAHAAAAAQADAAAAAAAIAAAAAQADAAAAAAAJAAAAAQADAAAAAAAKAAAAAQADAAAAAAALAAAAAQADAAAAAAAMAAAAAQADAAAAAAANAAAAAQADAAAAAAAOAAAAAQADAAAAAAAPAAAAAQADAAAAAAAQAAAAAQADAAAAAAARAAAAAQADAAAAAAASAAAAAQADAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAcAAQAAAAEAAAAAAAgAAQAAAAEAAAAAAAkAAQAAAAEAAAATAAAAAQAEAAAAAAAUAAAAAQAEAAAAAAAVAAAAAQAEAAAAAAAWAAAAAQAEAAAAAAAXAAAAAQAEAAAAAAAYAAAAAQAEAAAAAAAZAAAAAQAEAAAAAAAaAAAAAQAEAAAAAAAbAAAAAQAEAAAAAAAcAAEAAQAHAAMAAAAcAAIAAQAHAAMAAAAcAAMAAQAHAAMAAAAcAAQAAQAHAAMAAAAcAAUAAQAHAAMAAAAcAAYAAQAHAAMAAAAcAAcAAQAHAAMAAAAcAAgAAQAHAAMAAAAcAAkAAQAHAAMAAAAcAAoAAQAHAAMAAAAcAAsAAQAHAAMAAAAcAAwAAQAHAAMAAAAAAAoAAQAAAAQAAAAAAAsAAQAAAAQAAAAAAAwAAQAAAAQAAAAAAA0AAQAAAAQAAAAAAA4AAQAAAAQAAAABAA8AAQADAAcAAAACAA8AAQADAAcAAAADAA8AAQADAAcAAAAEAA8AAQADAAcAAAAFAA8AAQADAAcAAAAGAA8AAQADAAcAAAAHAA8AAQADAAcAAAAIAA8AAQADAAcAAAAJAA8AAQADAAcAAAAKAA8AAQADAAcAAAALAA8AAQADAAcAAAAMAA8AAQADAAcAAAANAA8AAQADAAcAAAAOAA8AAQADAAcAAAAPAA8AAQADAAcAAAAQAA8AAQADAAcAAAARAA8AAQADAAcAAAASAA8AAQADAAcAAAATAA8AAQADAAcAAAAUAA8AAQADAAcAAAAVAA8AAQADAAcAAAAWAA8AAQADAAcAAAAXAA8AAQADAAcAAAAYAA8AAQADAAcAAAAZAA8AAQADAAcAAAAaAA8AAQADAAcAAAAbAA8AAQADAAcAAAAcAA0AAQAHAAMAAAAcAA4AAQAHAAMAAAAcAAAAAQAHAAAAAAAAAA8AAQAAAAcAAAAcAA8AAQAHAAcAAAARAAoAAQABAAIAAAARAAsAAQABAAMAAAARAAwAAQABAAQAAAASAAoAAQACAAIAAAASAAsAAQACAAMAAAASAAwAAQACAAQAAAATAAoAAQADAAIAAAATAAsAAQADAAMAAAATAAwAAQADAAQAAAAUAAoAAQAEAAIAAAAUAAsAAQAEAAMAAAAUAAwAAQAEAAQAAAAVAAoAAQAFAAIAAAAVAAsAAQAFAAMAAAAVAAwAAQAFAAQAAAAWAAoAAQAGAAIAAAAWAAsAAQAGAAMAAAAWAAwAAQAGAAQAAAAVAAUAAQACAAMAAAAVAAYAAQACAAQAAAAWAAUAAQADAAMAAAAWAAYAAQADAAQAAAAHAAgAAQAEAAMAAAAHAAkAAQAEAAQAAAAIAAgAAQAFAAMAAAAIAAkAAQAFAAQAAAA=")
 tile_set = SubResource("TileSet_ehs05")
 
-[node name="LeftDoor" type="Area2D" parent="."]
+[node name="LeftDoor" type="Area2D" parent="." unique_id=1353700834]
 position = Vector2(16, 128)
 collision_layer = 0
 collision_mask = 2147483648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftDoor" unique_id=709508747]
 shape = SubResource("RectangleShape2D_qow8i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftDoor"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftDoor" unique_id=2101245118]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_qow8i")
 
-[node name="RightDoor" type="Area2D" parent="."]
+[node name="RightDoor" type="Area2D" parent="." unique_id=1856935403]
 position = Vector2(448, 128)
 collision_layer = 0
 collision_mask = 2147483648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightDoor" unique_id=1505998361]
 shape = SubResource("RectangleShape2D_qow8i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RightDoor"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RightDoor" unique_id=2046579245]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_qow8i")
 
-[node name="TopDoor" type="Area2D" parent="."]
+[node name="TopDoor" type="Area2D" parent="." unique_id=855984920]
 position = Vector2(232, 16)
 collision_layer = 0
 collision_mask = 2147483648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDoor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDoor" unique_id=790383134]
 shape = SubResource("RectangleShape2D_qow8i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TopDoor"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TopDoor" unique_id=2064358143]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_qow8i")
 
-[node name="BottomDoor" type="Area2D" parent="."]
+[node name="BottomDoor" type="Area2D" parent="." unique_id=1497329451]
 position = Vector2(232, 240)
 collision_layer = 0
 collision_mask = 2147483648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor" unique_id=1994810728]
 shape = SubResource("RectangleShape2D_qow8i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BottomDoor"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BottomDoor" unique_id=1695800933]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_qow8i")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(232, 128)
-zoom = Vector2(2.483, 2.532)
-
-[node name="Dean" parent="." instance=ExtResource("3_qkpli")]
-position = Vector2(148, 78)
-collision_layer = 2147483649
 
 [connection signal="body_entered" from="LeftDoor" to="." method="_on_left_door_body_entered"]
 [connection signal="body_entered" from="RightDoor" to="." method="_on_right_door_body_entered"]
