@@ -14,6 +14,7 @@ var boss_chance
 var room_limit = 7
 var reached_boss : bool = false
 var already_room : bool = false
+var camera_position = Vector2i(0,0)
 
 var rooms = [
 	{"scene": "res://scenes/exampleroom1.tscn", "weight": 50, "name": "1",},

@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var dean: CharacterBody2D = $Dean
+@onready var camera: Camera2D = $Camera2D
+
 
 @export var _dimensions : Vector2i = Vector2i(10,10)
 @export var _start : Vector2i = Vector2i(3,0)
@@ -7,6 +10,7 @@ extends Node2D
 var room_position = Vector2i(0,0)
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
+var random_room = ""
 
 func _ready() -> void:
 	_initialize_dungeon()
@@ -14,7 +18,11 @@ func _ready() -> void:
 	_generate_critical_path(_start, _critical_path_length, "C", true)
 	_print_dungeon()
 
-
+func _process(delta: float) -> void:
+	var relative_pos_x = dean.position.x 
+	var relative_pos_y = dean.position.y 
+	camera.position.x = (floor(relative_pos_x  / 464) * 464) + 232
+	camera.position.y = (floor(relative_pos_y  / 256) * 256) + 128
 
 func _initialize_dungeon() -> void:
 	for x in _dimensions.x:
@@ -27,15 +35,11 @@ func _place_entrance() -> void:
 		_start.x = randi_range(0, _dimensions.x - 1)
 	if _start.y < 0 or _start.y >= _dimensions.y:
 		_start.y = randi_range(0, _dimensions.y - 1)
-	var starting_room = preload("res://scenes/startingroom.tscn")
-	var starting_instance = starting_room.instantiate()
-	starting_instance.position.x = 0
-	starting_instance.position.y = 0
-	add_child(starting_instance)
+
 	
 	
 	
-	dungeon[_start.x][_start.y] = "S"
+	dungeon[_start.x][_start.y] = "res://scenes/startingroom.tscn"
 	
 
 func _generate_critical_path(from : Vector2i, length : int, marker : String, critical : bool) -> bool:
@@ -51,16 +55,12 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 	match randi_range(0,3):
 		0:
 			direction = Vector2i.UP
-			room_position.y += 256
 		1:
 			direction = Vector2i.RIGHT
-			room_position.x += 464
 		2:
 			direction = Vector2i.DOWN
-			room_position.y -= 256
 		3:
 			direction = Vector2i.LEFT
-			room_position.x -= 464
 	for i in 4:
 		if (current.x + direction.x >= 0 and current.x + direction.x < _dimensions.x and 
 			current.y + direction.y >= 0 and current.y + direction.y < _dimensions.y and 
@@ -69,12 +69,8 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 			current += direction
 			
 			var random_room = Globals.random_room()
-			print(random_room)
-			var loaded_room = load(random_room)
-			var room_instance = loaded_room.instantiate()
-			room_instance.position.x = room_position.x
-			room_instance.position.y = room_position.y
-			add_child(room_instance)
+			
+			
 			
 			marker = str(random_room)
 			dungeon[current.x][current.y] = marker
@@ -95,8 +91,17 @@ func _print_dungeon() -> void:
 	for y in range(_dimensions.y -1, -1, -1):
 		for x in _dimensions.x:
 			if dungeon[x][y]:
+				print(dungeon[x][y])
+				var loaded_room = load(dungeon[x][y])
+				var room_instance = loaded_room.instantiate()
+				room_instance.position.x = room_position.x
+				room_instance.position.y = room_position.y
+				add_child(room_instance)
 				dungeon_as_string += "[" + str(dungeon[x][y]) + "]"
 			else:
 				dungeon_as_string += "[ ]"
+			room_position.x += 464
+		room_position.x = 0
+		room_position.y -= 256
 		dungeon_as_string += '\n'
 	print(dungeon_as_string)
