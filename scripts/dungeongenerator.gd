@@ -11,11 +11,12 @@ var room_position = Vector2i(0,0)
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
 var random_room = ""
+var directions : Array
 
 func _ready() -> void:
 	_initialize_dungeon()
 	_place_entrance()
-	_generate_critical_path(_start, _critical_path_length, "C", true)
+	_generate_critical_path(_start, _critical_path_length, true)
 	_print_dungeon()
 
 func _process(delta: float) -> void:
@@ -39,17 +40,18 @@ func _place_entrance() -> void:
 	
 	
 	
-	dungeon[_start.x][_start.y] = "res://scenes/startingroom.tscn"
+	dungeon[_start.x][_start.y] = {"id" : "res://scenes/startingroom.tscn", "direction" : "(0, 0)"}
 	
 
-func _generate_critical_path(from : Vector2i, length : int, marker : String, critical : bool) -> bool:
+func _generate_critical_path(from : Vector2i, length : int, critical : bool) -> bool:
 	if Globals.reached_boss:
 		return true
 	var current_critical = critical
 	if length == 0:
 		return true
 	if length == 1 and critical:
-		marker = "B"
+		#marker = "B"
+		pass
 	var current : Vector2i = from
 	var direction : Vector2i
 	match randi_range(0,3):
@@ -67,16 +69,16 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 			not dungeon[current.x + direction.x][current.y + direction.y]):
 			
 			current += direction
-			
+			directions.append
 			var random_room = Globals.random_room()
 			
+			var marker : Dictionary = {"id": null, "direction": direction}
 			
-			
-			marker = str(random_room)
+			marker.id = random_room
 			dungeon[current.x][current.y] = marker
 			if length > 2:
 				_branch_candidates.append(current)
-			if _generate_critical_path(current, length - 1, marker, current_critical):
+			if _generate_critical_path(current, length - 1, current_critical):
 				return true
 			else:
 				_branch_candidates.erase(current)
@@ -87,12 +89,42 @@ func _generate_critical_path(from : Vector2i, length : int, marker : String, cri
 
 
 func _print_dungeon() -> void:
+	#print(dungeon)
 	var dungeon_as_string : String = ""
 	for y in range(_dimensions.y -1, -1, -1):
 		for x in _dimensions.x:
 			if dungeon[x][y]:
-				print(dungeon[x][y])
-				var loaded_room = load(dungeon[x][y])
+				var door_position = Vector2i(0, 0)
+				var door_scene = load("res://scenes/door.tscn")
+				var door_instance = door_scene.instantiate()
+				var door_vector = dungeon[x][y].direction
+				door_vector = str(door_vector)
+				match door_vector:
+					"(0, 1)":
+						door_position.x = room_position.x + 232
+						door_position.y = room_position.y 
+						print(1)
+					"(1, 0)":
+						door_position.x = room_position.x 
+						door_position.y = room_position.y + 128
+						print(2)
+					"(0, -1)":
+						door_position.x = room_position.x + 232
+						door_position.y = room_position.y + 256
+						print(3)
+					"(-1, 0)":
+						door_position.x = room_position.x + 464
+						door_position.y = room_position.y + 128
+						print(4)
+					_:
+						print("nothing")
+						print(door_vector)
+				door_instance.position = door_position
+				add_child(door_instance)
+					
+						
+				var room_id = dungeon[x][y].id
+				var loaded_room = load(room_id)
 				var room_instance = loaded_room.instantiate()
 				room_instance.position.x = room_position.x
 				room_instance.position.y = room_position.y
@@ -104,4 +136,4 @@ func _print_dungeon() -> void:
 		room_position.x = 0
 		room_position.y -= 256
 		dungeon_as_string += '\n'
-	print(dungeon_as_string)
+	#print(dungeon_as_string)

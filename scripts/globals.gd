@@ -17,7 +17,7 @@ var already_room : bool = false
 var camera_position = Vector2i(0,0)
 
 var rooms = [
-	{"scene": "res://scenes/exampleroom1.tscn", "weight": 50, "name": "1",},
+	#{"scene": "res://scenes/exampleroom1.tscn", "weight": 50, "name": "1",},
 	{"scene": "res://scenes/exampleroom2.tscn", "weight": 50, "name": "2",},
 ]
 
