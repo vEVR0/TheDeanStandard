@@ -17,23 +17,25 @@ var already_room : bool = false
 var camera_position = Vector2i(0,0)
 
 var rooms = [
-	#{"scene": "res://scenes/exampleroom1.tscn", "weight": 50, "name": "1",},
-	{"scene": "res://scenes/exampleroom2.tscn", "weight": 50, "name": "2",},
+	{"scene": "res://scenes/rooms/exampleroom1.tscn", "weight": 50, "name": "1",},
+	{"scene": "res://scenes/rooms/exampleroom2.tscn", "weight": 50, "name": "2",},
 ]
 
+
+# there was an annoying warning so this ignores it
+@warning_ignore("unused_signal")
 signal attacking
 
 
 func lose_health(damage):
 	print(damage)
 	health = health - damage
-	
+
 
 
 
 func random_room():
 	room_count += 1
-	print(room_count)
 	if boss_room():
 		var chosen_room = choose_random_room()
 		return chosen_room

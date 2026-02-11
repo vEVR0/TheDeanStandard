@@ -1,3 +1,6 @@
+# this script does absolutely nothing
+
+
 extends Area2D
 
 var weapon_path

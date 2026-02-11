@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0gs76irm66na"]
+[gd_scene format=3 uid="uid://0gs76irm66na"]
 
 [ext_resource type="Script" uid="uid://bmvdxp5k2fxtv" path="res://scripts/cane.gd" id="1_77tqj"]
 [ext_resource type="Texture2D" uid="uid://b880e6awbus0k" path="res://! assets/Cane_Prototype.png" id="1_n30yt"]
@@ -103,13 +103,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mvjn"]
 size = Vector2(3.0000002, 18)
 
-[node name="Cane" type="Area2D"]
+[node name="Cane" type="Area2D" unique_id=713595058]
 rotation = 6.2831855
 collision_layer = 256
 collision_mask = 4
 script = ExtResource("1_77tqj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205778211]
 texture_filter = 1
 position = Vector2(4, 2.842171e-14)
 sprite_frames = SubResource("SpriteFrames_fp0eh")
@@ -118,13 +118,13 @@ autoplay = "default"
 frame = 10
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295181515]
 position = Vector2(10, -1.5000007)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_2mvjn")
 disabled = true
 
-[node name="CooldownTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1494295038]
 wait_time = 0.333
 one_shot = true
 

@@ -1,20 +1,19 @@
-extends Area2D
+extends StaticBody2D
 
-@export var door_direction : int
+@onready var dean: CharacterBody2D = $"../Dean"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	match door_direction:
-		1:
-			pass
-		2:
-			pass
-		3:
-			pass
-		4:
-			pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == dean:
+		pass
