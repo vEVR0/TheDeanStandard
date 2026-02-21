@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ds0t20abynf50"]
+[gd_scene format=3 uid="uid://ds0t20abynf50"]
 
 [ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://scripts/dean.gd" id="1_tn4m3"]
 [ext_resource type="Texture2D" uid="uid://c7dx5hfenockv" path="res://! assets/dean-idle.png" id="2_shaom"]
@@ -121,12 +121,12 @@ scale_max = 0.19999999
 [sub_resource type="CircleShape2D" id="CircleShape2D_roojp"]
 radius = 12.0
 
-[node name="Dean" type="CharacterBody2D"]
+[node name="Dean" type="CharacterBody2D" unique_id=1739194836]
 z_index = 1
 z_as_relative = false
 script = ExtResource("1_tn4m3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1608922743]
 texture_filter = 1
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_tn4m3")
@@ -134,13 +134,13 @@ animation = &"running"
 autoplay = "idle"
 frame_progress = 0.6716338
 
-[node name="Cane" parent="AnimatedSprite2D" instance=ExtResource("5_6gnbm")]
+[node name="Cane" parent="AnimatedSprite2D" unique_id=470742947 instance=ExtResource("5_6gnbm")]
 position = Vector2(4, 5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384591008]
 shape = SubResource("CapsuleShape2D_shaom")
 
-[node name="CooldownParticles" type="GPUParticles2D" parent="."]
+[node name="CooldownParticles" type="GPUParticles2D" parent="." unique_id=1529969287]
 texture_filter = 1
 position = Vector2(6, 3)
 emitting = false
@@ -150,17 +150,17 @@ lifetime = 0.5
 trail_lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_8qcam")
 
-[node name="CooldownParticleTimer" type="Timer" parent="."]
+[node name="CooldownParticleTimer" type="Timer" parent="." unique_id=760015313]
 wait_time = 0.1
 one_shot = true
 
-[node name="Pickup" type="Area2D" parent="."]
+[node name="Pickup" type="Area2D" parent="." unique_id=2033669756]
 visible = false
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("7_6gnbm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup" unique_id=1688081513]
 shape = SubResource("CircleShape2D_roojp")
 
 [connection signal="timeout" from="CooldownParticleTimer" to="." method="_on_cooldown_particle_timer_timeout"]

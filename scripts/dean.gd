@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cooldown_particles: GPUParticles2D = $CooldownParticles
@@ -11,6 +12,9 @@ var distance = 0
 var previousx = 0
 var previousy = 0
 
+func _ready() -> void:
+	Globals.connect("entered_door", Callable(self, "remove_layer"))
+	Globals.connect("exited_door", Callable(self, "add_layer"))
 
 
 func _physics_process(delta: float) -> void:
@@ -71,6 +75,14 @@ func _physics_process(delta: float) -> void:
 func _on_cooldown_particle_timer_timeout() -> void:
 	# stops particles after the timer ends
 	cooldown_particles.emitting = false
-	
 
-	
+
+func remove_layer():
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, true)
+	print("layer removed")
+
+func add_layer():
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(2, false)
+	print("layer added")

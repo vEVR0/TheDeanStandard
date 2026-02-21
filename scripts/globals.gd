@@ -17,8 +17,7 @@ var already_room : bool = false
 var camera_position = Vector2i(0,0)
 
 var rooms = [
-	{"scene": "res://scenes/rooms/exampleroom1.tscn", "weight": 50, "name": "1",},
-	{"scene": "res://scenes/rooms/exampleroom2.tscn", "weight": 50, "name": "2",},
+	{"scene": "res://scenes/rooms/exampleroom.tscn", "weight": 50, },
 ]
 
 
@@ -26,6 +25,11 @@ var rooms = [
 @warning_ignore("unused_signal")
 signal attacking
 
+@warning_ignore("unused_signal")
+signal entered_door
+
+@warning_ignore("unused_signal")
+signal exited_door
 
 func lose_health(damage):
 	print(damage)

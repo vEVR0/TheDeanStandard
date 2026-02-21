@@ -12,3 +12,4 @@ collision_layer = 2147483649
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1035431987]
 position = Vector2(1693, -2176)
+zoom = Vector2(2.5, 2.5)
