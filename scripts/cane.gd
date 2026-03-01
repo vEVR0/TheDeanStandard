@@ -42,15 +42,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 
-func _on_cooldown_timer_timeout() -> void:
-	Globals.cooldownparticles = true
 
 
 func _on_body_entered(body: Node2D) -> void:
 	for bug in bugs_hit:
 		if bug == body:
 			return
-	print("poopoo")
 	Globals.emit_signal("attacking")
 	weapon_damage(damage, body)
 	bugs_hit.append(body)

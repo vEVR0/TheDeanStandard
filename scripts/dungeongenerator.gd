@@ -138,6 +138,7 @@ func _print_dungeon() -> void:
 					_:
 						print("nothing")
 				door_instance.position = door_position
+				door_instance.z_index = 10
 				door_instance.rotation_degrees = door_rotation
 				add_child(door_instance)
 

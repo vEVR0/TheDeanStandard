@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cohg671px6b6v"
-path="res://.godot/imported/dean-running-behind.png-d6a94aa9c340e89eb5ff79bf728f1718.ctex"
+uid="uid://nosseriibyts"
+path="res://.godot/imported/healthbarfull.png-e1ae50af39d7ed9ff46d073bd9cebcab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/dean-running-behind.png"
-dest_files=["res://.godot/imported/dean-running-behind.png-d6a94aa9c340e89eb5ff79bf728f1718.ctex"]
+source_file="res://! assets/ui/healthbarfull.png"
+dest_files=["res://.godot/imported/healthbarfull.png-e1ae50af39d7ed9ff46d073bd9cebcab.ctex"]
 
 [params]
 

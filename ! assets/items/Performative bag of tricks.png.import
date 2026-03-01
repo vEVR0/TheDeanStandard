@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blbb2m8pql8ox"
-path="res://.godot/imported/dean.png-52e8e9a77abbec8df745dc1cdf8ac8a5.ctex"
+uid="uid://wpxkyrfvwlcm"
+path="res://.godot/imported/Performative bag of tricks.png-fc46829f6addc0271697dc72e5af088a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/dean.png"
-dest_files=["res://.godot/imported/dean.png-52e8e9a77abbec8df745dc1cdf8ac8a5.ctex"]
+source_file="res://! assets/items/Performative bag of tricks.png"
+dest_files=["res://.godot/imported/Performative bag of tricks.png-fc46829f6addc0271697dc72e5af088a.ctex"]
 
 [params]
 

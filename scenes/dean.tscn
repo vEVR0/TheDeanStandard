@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://ds0t20abynf50"]
 
 [ext_resource type="Script" uid="uid://br4h0q4t610yk" path="res://scripts/dean.gd" id="1_tn4m3"]
-[ext_resource type="Texture2D" uid="uid://cc88p35mx160" path="res://! assets/ase/shadow.png" id="2_roojp"]
-[ext_resource type="Texture2D" uid="uid://c7dx5hfenockv" path="res://! assets/dean-idle.png" id="2_shaom"]
-[ext_resource type="Texture2D" uid="uid://bp1mbmaup08yh" path="res://! assets/dean-running.png" id="3_qlthw"]
-[ext_resource type="Texture2D" uid="uid://cohg671px6b6v" path="res://! assets/dean-running-behind.png" id="4_qlthw"]
-[ext_resource type="PackedScene" uid="uid://0gs76irm66na" path="res://scenes/cane.tscn" id="5_6gnbm"]
-[ext_resource type="Texture2D" uid="uid://bm0unnpy34ic4" path="res://! assets/sparkle.png" id="6_mfpg3"]
+[ext_resource type="Texture2D" uid="uid://cc88p35mx160" path="res://! assets/effects/shadow.png" id="2_roojp"]
+[ext_resource type="Texture2D" uid="uid://c7dx5hfenockv" path="res://! assets/dean/dean-idle.png" id="2_shaom"]
+[ext_resource type="Texture2D" uid="uid://bp1mbmaup08yh" path="res://! assets/dean/dean-running.png" id="3_qlthw"]
+[ext_resource type="Texture2D" uid="uid://cohg671px6b6v" path="res://! assets/dean/dean-running-behind.png" id="4_qlthw"]
+[ext_resource type="PackedScene" uid="uid://0gs76irm66na" path="res://scenes/weapons/cane.tscn" id="5_6gnbm"]
 [ext_resource type="Script" uid="uid://bqkamr0cegdrk" path="res://scripts/pickup.gd" id="7_6gnbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlthw"]
@@ -108,17 +107,6 @@ animations = [{
 radius = 4.0
 height = 14.0
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qcam"]
-particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 15.0
-initial_velocity_max = 15.0
-angular_velocity_min = -720.0
-angular_velocity_max = 719.99994
-gravity = Vector3(0, 3, 0)
-scale_min = 0.19999999
-scale_max = 0.19999999
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_roojp"]
 radius = 12.0
 
@@ -147,20 +135,6 @@ position = Vector2(4, 5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384591008]
 shape = SubResource("CapsuleShape2D_shaom")
 
-[node name="CooldownParticles" type="GPUParticles2D" parent="." unique_id=1529969287]
-texture_filter = 1
-position = Vector2(6, 3)
-emitting = false
-amount = 50
-texture = ExtResource("6_mfpg3")
-lifetime = 0.5
-trail_lifetime = 10.0
-process_material = SubResource("ParticleProcessMaterial_8qcam")
-
-[node name="CooldownParticleTimer" type="Timer" parent="." unique_id=760015313]
-wait_time = 0.1
-one_shot = true
-
 [node name="Pickup" type="Area2D" parent="." unique_id=2033669756]
 visible = false
 collision_layer = 0
@@ -170,5 +144,4 @@ script = ExtResource("7_6gnbm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup" unique_id=1688081513]
 shape = SubResource("CircleShape2D_roojp")
 
-[connection signal="timeout" from="CooldownParticleTimer" to="." method="_on_cooldown_particle_timer_timeout"]
 [connection signal="area_entered" from="Pickup" to="Pickup" method="_on_area_entered"]

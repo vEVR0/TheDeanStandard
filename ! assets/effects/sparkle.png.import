@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp1mbmaup08yh"
-path="res://.godot/imported/dean-running.png-dae9314cd56202290ed2cfc9cfdf17c6.ctex"
+uid="uid://bm0unnpy34ic4"
+path="res://.godot/imported/sparkle.png-740f39f23513165996028848e0676f02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/dean-running.png"
-dest_files=["res://.godot/imported/dean-running.png-dae9314cd56202290ed2cfc9cfdf17c6.ctex"]
+source_file="res://! assets/effects/sparkle.png"
+dest_files=["res://.godot/imported/sparkle.png-740f39f23513165996028848e0676f02.ctex"]
 
 [params]
 

@@ -22,13 +22,6 @@ func _physics_process(delta: float) -> void:
 		print("dead")
 		queue_free()
 	
-
-	# plays cooldown particles and starts the cooldown timer.
-	if Globals.cooldownparticles:
-		cooldown_particles.emitting = true
-		cooldown_particle_timer.start()
-		Globals.cooldownparticles = false
-	
 	
 	# flipping dean's sprite
 	if get_local_mouse_position().x < 0 or get_local_mouse_position().x == 0:

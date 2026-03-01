@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b82cd0g6gho4j"]
 
 [ext_resource type="Script" uid="uid://cfqhcjjdqrmj8" path="res://scripts/door.gd" id="1_uvdjg"]
-[ext_resource type="Texture2D" uid="uid://csgsax5epdoq8" path="res://images/icon.svg" id="2_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://csgsax5epdoq8" path="res://! assets/icon.svg" id="2_uvdjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
 

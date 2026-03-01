@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fmeuswlkxf3j"
-path="res://.godot/imported/bugpixelart.png-abfcc20c678fef6e5fc0618e2d40e0d8.ctex"
+uid="uid://bp1mbmaup08yh"
+path="res://.godot/imported/dean-running.png-273d6abe26d3c1f60ad3365df828f1eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/bugpixelart.png"
-dest_files=["res://.godot/imported/bugpixelart.png-abfcc20c678fef6e5fc0618e2d40e0d8.ctex"]
+source_file="res://! assets/dean/dean-running.png"
+dest_files=["res://.godot/imported/dean-running.png-273d6abe26d3c1f60ad3365df828f1eb.ctex"]
 
 [params]
 

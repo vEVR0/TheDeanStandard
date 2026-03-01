@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cno6shrg2lr0e"]
 
-[ext_resource type="Texture2D" uid="uid://br3u6alfx67vg" path="res://images/bug.png" id="1_j426k"]
+[ext_resource type="Texture2D" uid="uid://br3u6alfx67vg" path="res://! assets/bug.png" id="1_j426k"]
 [ext_resource type="Script" uid="uid://div7w3xeeu5a1" path="res://scripts/bugof01.gd" id="2_7hnnw"]
 [ext_resource type="Script" uid="uid://nekaioukx483" path="res://scripts/killbox.gd" id="3_7hnnw"]
-[ext_resource type="Texture2D" uid="uid://fmeuswlkxf3j" path="res://! assets/bugpixelart.png" id="3_pfnhj"]
+[ext_resource type="Texture2D" uid="uid://fmeuswlkxf3j" path="res://! assets/enemies/bugpixelart.png" id="3_pfnhj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jihv"]
 atlas = ExtResource("3_pfnhj")

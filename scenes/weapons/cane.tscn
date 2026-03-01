@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0gs76irm66na"]
 
 [ext_resource type="Script" uid="uid://bmvdxp5k2fxtv" path="res://scripts/cane.gd" id="1_77tqj"]
-[ext_resource type="Texture2D" uid="uid://b880e6awbus0k" path="res://! assets/Cane_Prototype.png" id="1_n30yt"]
+[ext_resource type="Texture2D" uid="uid://b880e6awbus0k" path="res://! assets/weapons/Cane_Prototype.png" id="1_n30yt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77tqj"]
 atlas = ExtResource("1_n30yt")

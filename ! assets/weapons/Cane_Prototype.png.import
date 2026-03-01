@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7dx5hfenockv"
-path="res://.godot/imported/dean-idle.png-1b44aed46b858680daf152c328795e09.ctex"
+uid="uid://b880e6awbus0k"
+path="res://.godot/imported/Cane_Prototype.png-44df3c20ee9d3582a2110f5b887af452.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/dean-idle.png"
-dest_files=["res://.godot/imported/dean-idle.png-1b44aed46b858680daf152c328795e09.ctex"]
+source_file="res://! assets/weapons/Cane_Prototype.png"
+dest_files=["res://.godot/imported/Cane_Prototype.png-44df3c20ee9d3582a2110f5b887af452.ctex"]
 
 [params]
 

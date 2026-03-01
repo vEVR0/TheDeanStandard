@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b880e6awbus0k"
-path="res://.godot/imported/Cane_Prototype.png-fd88e5ab3dfddf6e82e4cbb0315dc40e.ctex"
+uid="uid://cohg671px6b6v"
+path="res://.godot/imported/dean-running-behind.png-e5d621ddeee944226bb83da67d7ae076.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://! assets/Cane_Prototype.png"
-dest_files=["res://.godot/imported/Cane_Prototype.png-fd88e5ab3dfddf6e82e4cbb0315dc40e.ctex"]
+source_file="res://! assets/dean/dean-running-behind.png"
+dest_files=["res://.godot/imported/dean-running-behind.png-e5d621ddeee944226bb83da67d7ae076.ctex"]
 
 [params]
 
