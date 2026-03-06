@@ -4,9 +4,10 @@ extends weapon
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var cooldown_timer: Timer = $CooldownTimer
 
-var caneooldown = 0.5
+
 var damage = 50
 var bugs_hit = []
+var attack_scale = Vector2()
 
 
 func _ready() -> void:
@@ -14,8 +15,9 @@ func _ready() -> void:
 	collision_shape_2d.disabled = true
 	
 	# sets cane speed
-	cooldown_timer.wait_time = caneooldown / 3
-	animated_sprite_2d.set_speed_scale(1 / caneooldown)
+	
+	cooldown_timer.wait_time = 1 / Globals.attack_speed_modifier / 6
+	animated_sprite_2d.set_speed_scale(2 * Globals.attack_speed_modifier)
 
 
 
@@ -30,7 +32,9 @@ func _process(delta: float) -> void:
 			
 			collision_shape_2d.disabled = false
 			animated_sprite_2d.play("attack")
-
+	attack_scale.x = Globals.attack_size_modifier
+	attack_scale.y = Globals.attack_size_modifier
+	set_scale(attack_scale)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

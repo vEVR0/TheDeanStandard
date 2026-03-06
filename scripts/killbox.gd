@@ -11,7 +11,7 @@ var InDean = false
 var damage = 20
 
 func _ready() -> void:
-	timer.wait_time = Globals.invuntime
+	timer.wait_time = Globals.invun_time
 
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

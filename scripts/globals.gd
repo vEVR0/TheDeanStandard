@@ -5,15 +5,21 @@ const DUNGEONGENERATOR = preload("uid://coqd0pulakx3y")
 
 var maxhealth = 100
 var health = maxhealth
-var invuntime = 0.5
-var damagemodifier = 1.0
-var speedmodifier = 1.0
+var invun_time = 0.5
+
 var room_count : int = 0
 var boss_chance 
 var room_limit = 7
 var reached_boss : bool = false
 var already_room : bool = false
 var camera_position = Vector2i(0,0)
+
+var damage_modifier = 1.0
+var speed_modifier = 1.0
+var attack_speed_modifier = 1.0
+var attack_size_modifier = 1.0
+
+
 
 var rooms = [
 	{"scene": "res://scenes/rooms/exampleroom.tscn", "weight": 50, },

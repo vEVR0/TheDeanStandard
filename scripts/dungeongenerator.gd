@@ -10,7 +10,6 @@ extends Node2D
 var room_position = Vector2i(0,0)
 var dungeon: Array
 var _branch_candidates : Array[Vector2i]
-var random_room = ""
 @export var _branches : int = 3
 @export var _branch_length : Vector2i = Vector2i(1,5)
 @export var room_size = Vector2i(464, 256)

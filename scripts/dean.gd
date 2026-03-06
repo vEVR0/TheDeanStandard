@@ -3,8 +3,6 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var cooldown_particles: GPUParticles2D = $CooldownParticles
-@onready var cooldown_particle_timer: Timer = $CooldownParticleTimer
 
 const BASESPEED = 100.0
 var SPEED = BASESPEED
@@ -49,9 +47,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Diagonal
 	if leftright != 0 and updown != 0:
-		SPEED = (BASESPEED * Globals.speedmodifier / (2**0.5) )
+		SPEED = (BASESPEED * Globals.speed_modifier / (2**0.5) )
 	else:
-		SPEED = BASESPEED * Globals.speedmodifier
+		SPEED = BASESPEED * Globals.speed_modifier
 	
 	# animation
 	if updown == -1.0:
@@ -65,17 +63,10 @@ func _physics_process(delta: float) -> void:
 
 
 
-func _on_cooldown_particle_timer_timeout() -> void:
-	# stops particles after the timer ends
-	cooldown_particles.emitting = false
-
-
 func remove_layer():
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(2, true)
-	print("layer removed")
 
 func add_layer():
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(2, false)
-	print("layer added")

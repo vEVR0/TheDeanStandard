@@ -13,7 +13,7 @@ func _ready() -> void:
 	Globals.connect("attacking", Callable(self, "randomizedamage"))
 
 func randomizedamage():
-	Globals.damagemodifier /= totaltrick
+	Globals.damage_modifier /= totaltrick
 	totaltrick = 1
 	for i in item_count:
 		var u = randf_range(0.0,1.0)
@@ -21,8 +21,8 @@ func randomizedamage():
 		totaltrick *= trick
 		print(totaltrick)
 		print(trick)
-	Globals.damagemodifier *= totaltrick
-	print(Globals.damagemodifier)
+	Globals.damage_modifier *= totaltrick
+	print(Globals.damage_modifier)
 	print("---")
 
 

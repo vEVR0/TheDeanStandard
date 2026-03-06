@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqonxxuhbqxts" path="res://scripts/dungeongenerator.gd" id="1_08e2k"]
 [ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="2_x5613"]
+[ext_resource type="PackedScene" uid="uid://cno6shrg2lr0e" path="res://scenes/enemies/bugof01.tscn" id="3_sugp2"]
 
 [node name="DungeonGenerator" type="Node2D" unique_id=2060820871]
 script = ExtResource("1_08e2k")
@@ -13,3 +14,6 @@ collision_layer = 2147483649
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1035431987]
 position = Vector2(1693, -2176)
 zoom = Vector2(2.5, 2.5)
+
+[node name="Bugof01" parent="." unique_id=442421633 instance=ExtResource("3_sugp2")]
+position = Vector2(1839, -2191)
