@@ -1,5 +1,4 @@
-extends Area2D
-class_name weapon
+class_name weapon extends Area2D
 
 var damagedealt = 0
 

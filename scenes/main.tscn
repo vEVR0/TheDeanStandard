@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://coqd0pulakx3y"]
 
-[ext_resource type="Script" uid="uid://dqonxxuhbqxts" path="res://scripts/dungeongenerator.gd" id="1_08e2k"]
+[ext_resource type="Script" uid="uid://dqonxxuhbqxts" path="res://scripts/roomgen/dungeongenerator.gd" id="1_08e2k"]
 [ext_resource type="PackedScene" uid="uid://ds0t20abynf50" path="res://scenes/dean.tscn" id="2_x5613"]
 [ext_resource type="PackedScene" uid="uid://cno6shrg2lr0e" path="res://scenes/enemies/bugof01.tscn" id="3_sugp2"]
 

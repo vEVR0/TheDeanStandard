@@ -21,7 +21,8 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Globals="*res://scripts/globals.gd"
-DamageNumbers="*res://scripts/damagenumbers.gd"
+DamageNumbers="*res://scripts/ui/damagenumbers.gd"
+RoomGen="*uid://skdm3dhjh77u"
 
 [display]
 

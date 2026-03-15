@@ -46,7 +46,7 @@ func _place_entrance() -> void:
 	
 
 func _generate_critical_path(from : Vector2i, length : int, critical : bool) -> bool:
-	if Globals.reached_boss:
+	if RoomGen.reached_boss:
 		return true
 	var current_critical = critical
 	if length == 0:
@@ -72,7 +72,7 @@ func _generate_critical_path(from : Vector2i, length : int, critical : bool) -> 
 			
 			current += direction
 			
-			var random_room = Globals.random_room()
+			var random_room = RoomGen.random_room()
 			
 			var marker : Dictionary = {"id": null, "direction": direction, "branch": "false"}
 			if not critical:
